@@ -1,37 +1,18 @@
 <ion-view view-title="Primary">
   <ion-content>
-    <h1>Primary</h1>
-    <div class="card list">
-      <!-- <div class="info-card-container">
-        <div class="item item-divider">
-          Full Name
-        </div>
+    <info-card title="Name" show-footer="{true: vm.primaryInfo.name != null}" footer-action="vm.toggleReplaceName()" toggle-save={{vm.replaceNameToggle}} save-action="vm.saveName(vm.newName)">
+      <input class="card-input" ng-if="vm.primaryInfo.name != null" type="text" value="{{vm.primaryInfo.name}}">
+      <input class="card-input" type="text" ng-if="vm.primaryInfo.name == null && !vm.replaceNameToggle" value="None Yet"/>
+      <input class="card-input" type="text" ng-model="vm.newName" placeholder="Enter name here..." ng-if="vm.replaceNameToggle">
+    </info-card>
 
-        <div class="item item-text-wrap">
-          Enter name here...
-        </div>
-      </div> -->
-
-      <info-card title="Full Name">
-          <form>
-            <input type="text" name="name" placeholder="Enter name here...">
-            <input type="submit" value="Save" />
-          </form>
-      </info-card>
-
-      <!-- <div class="info-card-container">
-        <div class="item item-divider">
-          Full Name
-        </div>
-
-        <div class="item item-text-wrap">
-          Enter name here...
-        </div>
-      </div> -->
-
-      <div class="item item-divider">
-        Card Footer
+    <info-card title="Emails" show-footer="{true: vm.primaryInfo.emails.length != 0}" footer-action="vm.toggleAddEmail()" toggle-save={{vm.addEmailToggle}} save-action="vm.saveEmail(vm.newEmail)">
+      <div ng-repeat="email in vm.primaryInfo.emails">
+        <input class="card-input" type="text" ng-if="email" value="{{email}}"/>
       </div>
-</div>
+      <input class="card-input" type="text" ng-if="vm.primaryInfo.emails.length == 0 && !vm.addEmailToggle" value="None Yet"/>
+      <input class="card-input" type="text" ng-model="vm.newEmail" placeholder="Enter email here..." ng-if="vm.addEmailToggle">
+    </info-card>
+    {{vm.primaryInfo}}
   </ion-content>
 </ion-view>

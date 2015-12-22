@@ -1,9 +1,31 @@
 <div class="info-card-container">
-  <div class="item item-divider">
-    {{title}}
-  </div>
+  <div class="card">
+    <div class="item item-divider">
+      {{title}}
+    </div>
 
-  <div class="item item-text-wrap">
-    <ng-transclude></ng-transclude>
+    <div class="item item-text-wrap">
+      <ng-transclude></ng-transclude>
+    </div>
+
+    <div ng-if="showFooter">
+      <div class="item item-divider" ng-if="toggleSave == 'false'" ng-click="footerAction()">
+        <div ng-if="title.length-1 == 's'">
+          Add {{title.substring(0,title.length-1)}}
+        </div>
+        <div ng-if="title.length-1 != 's'">
+          Add {{title}}
+        </div>
+      </div>
+      <div class="item item-divider positive-background" ng-if="toggleSave == 'true'" ng-click="saveAction()">
+        <div ng-if="title.length-1 == 's'">
+          Save New {{title.substring(0,title.length-1)}}
+        </div>
+        <div ng-if="title.length-1 != 's'">
+          Save New {{title}}
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

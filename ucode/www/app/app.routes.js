@@ -7,7 +7,7 @@ angular
       url: '/app',
       abstract: true,
       templateUrl: 'app/menu/menu.html',
-      controller: 'MenuController'
+      controller: 'MenuController as vm'
     })
 
     .state('app.main', {
@@ -15,7 +15,7 @@ angular
       views: {
         'menuContent': {
           templateUrl: 'app/main/main.html',
-          controller: 'MainController'
+          controller: 'MainController as vm'
         }
       }
     })
@@ -25,7 +25,7 @@ angular
       views: {
         'menuContent': {
           templateUrl: 'app/primary/primary.html',
-          controller: 'PrimaryController'
+          controller: 'PrimaryController as vm'
         }
       }
     })
@@ -35,7 +35,7 @@ angular
         views: {
           'menuContent': {
             templateUrl: 'app/professional/professional.html',
-            controller: 'ProfessionalController'
+            controller: 'ProfessionalController as vm'
           }
         }
       })
@@ -45,7 +45,7 @@ angular
         views: {
           'menuContent': {
             templateUrl: 'app/social/social.html',
-            controller: 'SocialController'
+            controller: 'SocialController as vm'
           }
         }
       })

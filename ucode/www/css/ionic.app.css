@@ -9719,3 +9719,17 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.positive-background {
+  background-color: #003374;
+  color: white; }
+
+.positive-background {
+  background-color: #003374;
+  color: white; }
+
+.info-card-container {
+  margin: 10px 0 10px 0; }
+
+.card-input {
+  width: 100%; }
