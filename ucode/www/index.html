@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.run.js"></script>
+    <script src="app/app.routes.js"></script>
+    <script src="app/controllers.js"></script>
+
+    <!-- utils -->
+    <script src="app/shared/utils/utils.module.js"></script>
+    <script src="app/shared/utils/info-card.directive.js"></script>
+
+    <!-- main -->
+    <script src="app/main/main.module.js"></script>
+    <script src="app/main/main.controller.js"></script>
+
+    <!-- menu -->
+    <script src="app/menu/menu.module.js"></script>
+    <script src="app/menu/menu.controller.js"></script>
+
+    <!-- primary -->
+    <script src="app/primary/primary.module.js"></script>
+    <script src="app/primary/primary.controller.js"></script>
+
+    <!-- professional -->
+    <script src="app/professional/professional.module.js"></script>
+    <script src="app/professional/professional.controller.js"></script>
+
+    <!-- social -->
+    <script src="app/social/social.module.js"></script>
+    <script src="app/social/social.controller.js"></script>
+
+  </head>
+
+  <body ng-app="ucode">
+    <ion-nav-bar class="bar bar-header bar-positive"></ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>
