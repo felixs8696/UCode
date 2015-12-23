@@ -1,0 +1,8 @@
+*
+!.gitignore
+!config.xml
+!ionic.project
+!package.json
+!bower.json
+!www/* (except for www/lib)
+www/lib/*

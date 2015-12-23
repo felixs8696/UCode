@@ -6,6 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('ucode', ['ionic',
                          'starter.controllers',
+                         'ucode.data',
                          'ucode.utils',
                          'ucode.main',
                          'ucode.menu',
