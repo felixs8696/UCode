@@ -16,8 +16,11 @@ function MenuController($scope, $ionicModal, $timeout, $ionicHistory) {
   });
 
   $scope.goBack = function() {
-    $ionicHistory.goBack(-1);
+    $ionicHistory.goBack();
+    console.log($ionicHistory.backView());
     console.log($ionicHistory.viewHistory());
+    console.log("enabledBack: " + $ionicHistory.enabledBack());
+    console.log("!!($ionicHistory.backView() && $ionicHistory.backView().historyId === $ionicHistory.currentView().historyId): " + !!($ionicHistory.backView() && $ionicHistory.backView().historyId === $ionicHistory.currentView().historyId));
   }
 
   // Triggered in the login modal to close it

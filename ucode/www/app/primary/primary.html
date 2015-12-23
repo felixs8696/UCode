@@ -1,5 +1,44 @@
 <ion-nav-view view-title="Primary">
   <ion-content>
-    <button class="button" ng-click="vm.goToEditPage()">Edit Info</button>
+    <info-card title="Name" show-footer=false>
+      <p ng-if="vm.primaryInfo.name != null" type="text">{{vm.primaryInfo.name}}</p>
+      <p ng-if="vm.primaryInfo.name == null && !vm.replaceNameToggle">None Yet</p>
+    </info-card>
+
+    <info-card title="Emails" show-footer=false>
+      <div ng-repeat="email in vm.primaryInfo.emails">
+        <p ng-if="email">{{email}}</p>
+      </div>
+      <p ng-if="vm.primaryInfo.emails.length == 0 && !vm.addEmailToggle">None Yet</p>
+    </info-card>
+
+    <info-card title="Phone Numbers" show-footer=false>
+      <div ng-repeat="number in vm.primaryInfo.phones">
+        <p ng-if="number">{{number}}</p>
+      </div>
+      <p ng-if="vm.primaryInfo.phones.length == 0 && !vm.addPhoneToggle">None Yet</p>
+    </info-card>
+
+    <info-card title="Current School" show-footer=false>
+      <p ng-if="vm.primaryInfo.school != null">{{vm.primaryInfo.school}}</p>
+      <p ng-if="vm.primaryInfo.school == null && !vm.replaceSchoolToggle">None Yet</p>
+    </info-card>
+
+    <info-card title="Address" show-footer=false>
+      <textarea ng-if="!vm.isNullAddress(vm.primaryInfo.address)" rows=3 readonly>{{vm.formattedAddress(vm.primaryInfo.address)}}</textarea>
+      <p ng-if="vm.isNullAddress(vm.primaryInfo.address) && !vm.replaceAddressToggle">None Yet</p>
+    </info-card>
+
+    <info-card title="Websites" show-footer=false>
+      <div ng-repeat="site in vm.primaryInfo.websites">
+        <p ng-if="site">{{site}}</p>
+      </div>
+      <p ng-if="vm.primaryInfo.websites.length == 0 && !vm.addWebsiteToggle">None Yet</p>
+    </info-card>
+
+    <div class="padding text-right">
+      <button class="button" ui-sref="app.primary.edit-primary">Edit Info</button>
+      <button class="button" ng-click="vm.resetInfo()">Reset Info</button>
+    </div>
   </ion-content>
 </ion-nav-view>

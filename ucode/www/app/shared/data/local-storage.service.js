@@ -9,10 +9,15 @@
     var factory = {
       storePrimaryData: storePrimaryData,
       getPrimaryData: getPrimaryData,
+      removePrimaryData: removePrimaryData,
       storeProfessionalData: storeProfessionalData,
       getProfessionalData: getProfessionalData,
+      removeProfessionalData: removeProfessionalData,
+      resetProfessionalData: resetProfessionalData,
       storeSocialData: storeSocialData,
-      getSocialData: getSocialData
+      getSocialData: getSocialData,
+      removeSocialData: removeSocialData,
+      resetSocialData: resetSocialData
     };
 
     function storePrimaryData(primaryDataObject) {
@@ -24,6 +29,29 @@
       return primaryDataObject;
     }
 
+    function removePrimaryData() {
+      localStorage.removeItem('PrimaryData');
+    }
+
+    function resetPrimaryData() {
+      removePrimaryData();
+      var initialPrimaryData = {
+        name: null,
+        emails: [],
+        phones: [],
+        school: null,
+        address: {
+          street: null,
+          city: null,
+          state: null,
+          country: null,
+          zipcode: null
+        },
+        websites: []
+      };
+      storePrimaryData(initialPrimaryData);
+    }
+
     function storeProfessionalData(professionalDataObject) {
       localStorage.setItem('ProfessionalData', JSON.stringify(professionalDataObject));
     }
@@ -33,6 +61,18 @@
       return professionalDataObject;
     }
 
+    function removeProfessionalData() {
+      localStorage.removeItem('ProfessionalData');
+    }
+
+    function resetProfessionalData() {
+      removeProfessionalData();
+      var initialProfessionalData = {
+
+      };
+      storeProfessionalData(initialProfessionalData);
+    }
+
     function storeSocialData(socialDataObject) {
       localStorage.setItem('SocialData', JSON.stringify(socialDataObject));
     }
@@ -40,6 +80,18 @@
     function getSocialData() {
       var socialDataObject = JSON.parse(localStorage.getItem('SocialData'));
       return socialDataObject;
+    }
+
+    function removeSocialData() {
+      localStorage.removeItem('ProfessionalData');
+    }
+
+    function resetSocialData() {
+      removeSocialData();
+      var initialSocialData = {
+
+      };
+      storeSocialData(initialSocialData);
     }
 
     return factory;

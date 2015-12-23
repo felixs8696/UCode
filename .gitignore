@@ -7,6 +7,9 @@ ucode/*
 !ucode/ionic.project
 !ucode/package.json
 !ucode/bower.json
+!ucode/gulpfile.js
+!ucode/scss/
+!ucode/scss/*
 !ucode/www/
 !ucode/www/*
 !ucode/www/**/*
