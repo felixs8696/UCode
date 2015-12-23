@@ -7,5 +7,5 @@ ucode/*
 !ucode/ionic.project
 !ucode/package.json
 !ucode/bower.json
-!ucode/www/* (except for www/lib)
+!ucode/www/*
 ucode/www/lib/*
