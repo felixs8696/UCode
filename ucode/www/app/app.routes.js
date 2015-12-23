@@ -30,6 +30,12 @@ angular
       }
     })
 
+    .state('app.primary.edit-primary', {
+      url: '/primary-contact-settings/edit',
+      templateUrl: 'app/primary/edit-primary.html',
+      controller: 'PrimaryController as vm'
+    })
+
     .state('app.professional', {
         url: '/professional-contact-settings',
         views: {

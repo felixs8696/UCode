@@ -2,9 +2,9 @@ angular
   .module('ucode.menu')
   .controller('MenuController', MenuController);
 
-MenuController.$inject = ['$scope', '$ionicModal', '$timeout'];
+MenuController.$inject = ['$scope', '$ionicModal', '$timeout', '$ionicHistory'];
 
-function MenuController($scope, $ionicModal, $timeout) {
+function MenuController($scope, $ionicModal, $timeout, $ionicHistory) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -14,6 +14,11 @@ function MenuController($scope, $ionicModal, $timeout) {
   }).then(function(modal) {
     $scope.modal = modal;
   });
+
+  $scope.goBack = function() {
+    $ionicHistory.goBack(-1);
+    console.log($ionicHistory.viewHistory());
+  }
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function() {

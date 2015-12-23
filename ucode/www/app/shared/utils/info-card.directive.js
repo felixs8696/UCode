@@ -14,7 +14,8 @@
         showFooter:"@",
         footerAction: "&",
         toggleSave: "@",
-        saveAction: "&"
+        saveAction: "&",
+        replace: "@"
       },
       templateUrl: "app/shared/utils/info-card.html"
     }

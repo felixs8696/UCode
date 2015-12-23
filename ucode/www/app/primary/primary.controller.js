@@ -2,9 +2,9 @@ angular
   .module('ucode.primary')
   .controller('PrimaryController', PrimaryController);
 
-PrimaryController.$inject = [];
+PrimaryController.$inject = ['$state', 'DataStorage', '$ionicHistory'];
 
-function PrimaryController() {
+function PrimaryController($state, DataStorage, $ionicHistory) {
   var vm = this;
 
   vm.replaceNameToggle = false;
@@ -36,13 +36,23 @@ function PrimaryController() {
   vm.toggleAddEmail = toggleAddEmail;
   vm.toggleReplaceName = toggleReplaceName;
   vm.saveName = saveName;
+  vm.goToEditPage = goToEditPage;
+  vm.goBack = goBack;
+
+  function goToEditPage() {
+    $state.go('app.primary.edit-primary');
+  }
 
   function toggleAddEmail() {
     vm.addEmailToggle = true;
   }
 
+  function goBack() {
+    $ionicHistory.goBack();
+    console.log("back");
+  }
+
   function saveEmail(email) {
-    console.log(email);
     vm.addEmailToggle = false;
     vm.newEmail = null;
     if (email) {
@@ -55,7 +65,6 @@ function PrimaryController() {
   }
 
   function saveName(name) {
-    console.log(name);
     vm.replaceNameToggle = false;
     vm.newName = null;
     if (name) {

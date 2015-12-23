@@ -1,18 +1,5 @@
-<ion-view view-title="Primary">
+<ion-nav-view view-title="Primary">
   <ion-content>
-    <info-card title="Name" show-footer={{vm.primaryInfo.name != null}} footer-action="vm.toggleReplaceName()" toggle-save={{vm.replaceNameToggle}} save-action="vm.saveName(vm.newName)">
-      <input class="card-input" ng-if="vm.primaryInfo.name != null" type="text" value="{{vm.primaryInfo.name}}">
-      <input class="card-input" type="text" ng-if="vm.primaryInfo.name == null && !vm.replaceNameToggle" value="None Yet" disabled/>
-      <input class="card-input" type="text" ng-model="vm.newName" placeholder="Enter name here..." ng-if="vm.replaceNameToggle">
-    </info-card>
-
-    <info-card title="Emails" show-footer={{vm.primaryInfo.emails.length != 0}} footer-action="vm.toggleAddEmail()" toggle-save={{vm.addEmailToggle}} save-action="vm.saveEmail(vm.newEmail)">
-      <div ng-repeat="email in vm.primaryInfo.emails">
-        <input class="card-input" type="text" ng-if="email" value="{{email}}"/>
-      </div>
-      <input class="card-input" type="text" ng-if="vm.primaryInfo.emails.length == 0 && !vm.addEmailToggle" value="None Yet" disabled/>
-      <input class="card-input" type="text" ng-model="vm.newEmail" placeholder="Enter email here..." ng-if="vm.addEmailToggle">
-    </info-card>
-    {{vm.primaryInfo}}
+    <button class="button" ng-click="vm.goToEditPage()">Edit Info</button>
   </ion-content>
-</ion-view>
+</ion-nav-view>
