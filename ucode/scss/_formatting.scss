@@ -1,0 +1,29 @@
+@import "_theme";
+
+.info-card-container{
+  margin: 10px 0 10px 0;
+}
+
+.card-input {
+  width: 100%;
+}
+
+info-card input[type="text"] {
+   height: 30px;
+   word-wrap: normal;
+   width: 100%;
+}
+
+info-card textarea {
+   width: 100%;
+   resize: none;
+}
+
+textarea[readonly]:not(.cloned-text-input) {
+   background: #ffffff;
+   cursor: default;
+}
+
+input[type="text"]:disabled {
+  background: #ffffff;
+}
