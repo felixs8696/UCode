@@ -6,59 +6,51 @@ PrimaryController.$inject = ['$state', 'DataStorage', '$ionicHistory'];
 
 function PrimaryController($state, DataStorage, $ionicHistory) {
   var vm = this;
+  var nullAddress = {
+    street: null,
+    city: null,
+    state: null,
+    country: null,
+    zipcode: null
+  };
 
   vm.replaceNameToggle = false;
   vm.addEmailToggle = false;
   vm.addPhoneToggle = false;
-  vm.addSchoolToggle = false;
+  vm.replaceSchoolToggle = false;
   vm.replaceAddressToggle = false;
-  vm.addWebsitesToggle = false;
+  vm.addWebsiteToggle = false;
 
   vm.newEmail = null;
   vm.newName = null;
-
-  vm.primaryInfo = {
-    name: null,
-    emails: [],
-    phones: [],
-    school: null,
-    address: {
-      street: null,
-      city: null,
-      state: null,
-      country: null,
-      zipcode: null
-    },
-    websites: []
+  vm.newPhone = null;
+  vm.newSchool = null;
+  vm.newAddress = {
+    street: null,
+    city: null,
+    state: null,
+    country: null,
+    zipcode: null
   };
+  vm.newWebsite = null;
 
-  vm.saveEmail = saveEmail;
-  vm.toggleAddEmail = toggleAddEmail;
+  vm.primaryInfo = DataStorage.getPrimaryData();
+
   vm.toggleReplaceName = toggleReplaceName;
   vm.saveName = saveName;
-  vm.goToEditPage = goToEditPage;
-  vm.goBack = goBack;
-
-  function goToEditPage() {
-    $state.go('app.primary.edit-primary');
-  }
-
-  function toggleAddEmail() {
-    vm.addEmailToggle = true;
-  }
-
-  function goBack() {
-    $ionicHistory.goBack();
-    console.log("back");
-  }
-
-  function saveEmail(email) {
-    vm.addEmailToggle = false;
-    vm.newEmail = null;
-    if (email) {
-        vm.primaryInfo.emails.push(email);
-    }
-  }
+  vm.toggleAddEmail = toggleAddEmail;
+  vm.saveEmail = saveEmail;
+  vm.toggleAddPhone = toggleAddPhone;
+  vm.savePhone = savePhone;
+  vm.toggleReplaceSchool = toggleReplaceSchool;
+  vm.saveSchool = saveSchool;
+  vm.toggleReplaceAddress = toggleReplaceAddress;
+  vm.saveAddress = saveAddress;
+  vm.toggleAddWebsite = toggleAddWebsite;
+  vm.saveWebsite = saveWebsite;
+  vm.isNullAddress = isNullAddress;
+  vm.formattedAddress = formattedAddress;
+  vm.resetInfo = resetInfo;
 
   function toggleReplaceName() {
     vm.replaceNameToggle = true;
@@ -69,6 +61,109 @@ function PrimaryController($state, DataStorage, $ionicHistory) {
     vm.newName = null;
     if (name) {
         vm.primaryInfo.name = name;
+        DataStorage.storePrimaryData(vm.primaryInfo);
     }
   }
+
+  function toggleAddEmail() {
+    vm.addEmailToggle = true;
+  }
+
+  function saveEmail(email) {
+    vm.addEmailToggle = false;
+    vm.newEmail = null;
+    if (email) {
+        vm.primaryInfo.emails.push(email);
+        DataStorage.storePrimaryData(vm.primaryInfo);
+    }
+  }
+
+  function toggleAddPhone() {
+    vm.addPhoneToggle = true;
+  }
+
+  function savePhone(number) {
+    vm.addPhoneToggle = false;
+    vm.newPhone = null;
+    if (number) {
+        vm.primaryInfo.phones.push(number);
+        DataStorage.storePrimaryData(vm.primaryInfo);
+    }
+  }
+
+  function toggleReplaceSchool() {
+    vm.replaceSchoolToggle = true;
+  }
+
+  function saveSchool(school) {
+    vm.replaceSchoolToggle = false;
+    vm.newSchool = null;
+    if (school) {
+        vm.primaryInfo.school = school;
+        DataStorage.storePrimaryData(vm.primaryInfo);
+    }
+  }
+
+  function toggleReplaceAddress() {
+    vm.replaceAddressToggle = true;
+  }
+
+  function saveAddress(address) {
+    vm.replaceAddressToggle = false;
+    vm.newAddress = nullAddress;
+    if (!isNullAddress(address)) {
+        vm.primaryInfo.address = address;
+        DataStorage.storePrimaryData(vm.primaryInfo);
+    }
+  }
+
+  function isNullAddress(addressObject) {
+    if (!addressObject.street && !addressObject.city && !addressObject.state && !addressObject.country && !addressObject.zipcode) {
+      return true;
+    }
+    return false;
+  }
+
+  function formattedAddress(addressObject) {
+    var formatted = "";
+    if (addressObject.street) {
+      formatted += addressObject.street;
+    }
+    if (addressObject.city || addressObject.state || addressObject.zipcode) {
+      if (formatted.length == 0) {
+        formatted += addressObject.street;
+      } else {
+        formatted += '\n' + addressObject.city;
+        if (addressObject.city && (addressObject.state || addressObject.zipcode)) {
+          formatted += ', ' + addressObject.state + ' ' + addressObject.zipcode;
+        }
+      }
+    }
+    if (addressObject.country) {
+      if (formatted.length == 0) {
+        formatted += addressObject.country;
+      } else {
+        formatted += '\n' + addressObject.country;
+      }
+    }
+    return formatted;
+  }
+
+  function toggleAddWebsite() {
+    vm.addWebsiteToggle = true;
+  }
+
+  function saveWebsite(site) {
+    vm.addWebsiteToggle = false;
+    vm.newWebsite = null;
+    if (site) {
+        vm.primaryInfo.websites.push(site);
+        DataStorage.storePrimaryData(vm.primaryInfo);
+    }
+  }
+
+  function resetInfo() {
+    DataStorage.resetPrimaryData();
+  }
+
 }
