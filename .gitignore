@@ -10,4 +10,4 @@ ucode/*
 !ucode/www/
 !ucode/www/*
 !ucode/www/**/*
-ucode/www/lib/**
+ucode/www/lib/*
