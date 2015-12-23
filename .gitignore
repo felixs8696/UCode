@@ -8,4 +8,5 @@ ucode/*
 !ucode/package.json
 !ucode/bower.json
 !ucode/www/*
+!ucode/www/**/*
 ucode/www/lib/*
