@@ -1,8 +1,11 @@
 *
+ucode/*
+!README.md
 !.gitignore
-!config.xml
-!ionic.project
-!package.json
-!bower.json
-!www/* (except for www/lib)
-www/lib/*
+!ucode/.gitignore
+!ucode/config.xml
+!ucode/ionic.project
+!ucode/package.json
+!ucode/bower.json
+!ucode/www/* (except for www/lib)
+ucode/www/lib/*
