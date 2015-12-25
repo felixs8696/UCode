@@ -1,6 +1,9 @@
-<ion-view view-title="Felix Su">
+<ion-view view-title="{{vm.name}}">
   <ion-content>
-    <h1>U Code</h1>
+    <h1 class="text-center">U Code</h1>
     {{vm.primaryData}}
+    <info-section title="Primary">
+        <about-section section-list="vm.primaryIconList"></about-section>
+    </info-section>
   </ion-content>
 </ion-view>

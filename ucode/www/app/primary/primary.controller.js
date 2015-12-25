@@ -2,9 +2,9 @@ angular
   .module('ucode.primary')
   .controller('PrimaryController', PrimaryController);
 
-PrimaryController.$inject = ['$state', 'DataStorage', '$ionicHistory'];
+PrimaryController.$inject = ['$state', 'DataStorage', '$ionicHistory', '$window', 'AddressService'];
 
-function PrimaryController($state, DataStorage, $ionicHistory) {
+function PrimaryController($state, DataStorage, $ionicHistory, $window, AddressService) {
   var vm = this;
   var nullAddress = {
     street: null,
@@ -48,8 +48,8 @@ function PrimaryController($state, DataStorage, $ionicHistory) {
   vm.saveAddress = saveAddress;
   vm.toggleAddWebsite = toggleAddWebsite;
   vm.saveWebsite = saveWebsite;
-  vm.isNullAddress = isNullAddress;
-  vm.formattedAddress = formattedAddress;
+  vm.isNullAddress = AddressService.isNullAddress;
+  vm.formattedAddress = AddressService.formattedAddress;
   vm.resetInfo = resetInfo;
 
   function toggleReplaceName() {
@@ -111,42 +111,10 @@ function PrimaryController($state, DataStorage, $ionicHistory) {
   function saveAddress(address) {
     vm.replaceAddressToggle = false;
     vm.newAddress = nullAddress;
-    if (!isNullAddress(address)) {
+    if (!AddressService.isNullAddress(address)) {
         vm.primaryInfo.address = address;
         DataStorage.storePrimaryData(vm.primaryInfo);
     }
-  }
-
-  function isNullAddress(addressObject) {
-    if (!addressObject.street && !addressObject.city && !addressObject.state && !addressObject.country && !addressObject.zipcode) {
-      return true;
-    }
-    return false;
-  }
-
-  function formattedAddress(addressObject) {
-    var formatted = "";
-    if (addressObject.street) {
-      formatted += addressObject.street;
-    }
-    if (addressObject.city || addressObject.state || addressObject.zipcode) {
-      if (formatted.length == 0) {
-        formatted += addressObject.street;
-      } else {
-        formatted += '\n' + addressObject.city;
-        if (addressObject.city && (addressObject.state || addressObject.zipcode)) {
-          formatted += ', ' + addressObject.state + ' ' + addressObject.zipcode;
-        }
-      }
-    }
-    if (addressObject.country) {
-      if (formatted.length == 0) {
-        formatted += addressObject.country;
-      } else {
-        formatted += '\n' + addressObject.country;
-      }
-    }
-    return formatted;
   }
 
   function toggleAddWebsite() {
@@ -164,6 +132,9 @@ function PrimaryController($state, DataStorage, $ionicHistory) {
 
   function resetInfo() {
     DataStorage.resetPrimaryData();
+    $ionicHistory.clearCache();
+    $state.go($state.current, {}, {reload: true});
+    // $window.location.reload(true)
   }
 
 }

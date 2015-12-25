@@ -7,6 +7,7 @@
 angular.module('ucode', ['ionic',
                          'starter.controllers',
                          'ucode.data',
+                         'ucode.services',
                          'ucode.utils',
                          'ucode.main',
                          'ucode.menu',

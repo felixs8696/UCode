@@ -9749,3 +9749,94 @@ textarea[readonly]:not(.cloned-text-input) {
 
 input[type="text"]:disabled {
   background: #ffffff; }
+
+info-card .item {
+  padding: 8px 10px 8px 10px; }
+
+.positive-background {
+  background-color: #003374;
+  color: white; }
+
+.about-grid {
+  padding: 3px 0 3px 20px;
+  display: inline-block; }
+
+.about-gray {
+  font-family: 'Helvetica Neue', 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #ABABAB; }
+
+.about-gray p {
+  display: inline-block;
+  margin: 0; }
+
+.about-gray i {
+  font-size: 30px;
+  color: #ABABAB;
+  display: inline-block; }
+
+.activity-count {
+  width: 10%;
+  display: inline-block;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #C0C0C0;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center; }
+
+.activity-title {
+  width: 75%;
+  display: inline-block;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  color: #ABABAB;
+  font-size: 16px; }
+
+.activity-icon {
+  width: 10%;
+  display: inline-block;
+  color: #C0C0C0;
+  font-size: 16px;
+  text-align: center; }
+
+.user-grid-item {
+  width: 21%;
+  display: inline-block;
+  text-align: center;
+  margin: 5px 2% 5px 2%; }
+
+.user-grid-item p {
+  margin: 2px 0 0 0;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 200;
+  color: #ABABAB;
+  font-size: 14px; }
+
+.user-pic {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 90%;
+  height: 0;
+  padding-top: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: no-repeat center center;
+  background-size: cover; }
+
+.name-title {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 30px; }
+
+.white-name {
+  color: white; }
+
+.info-rectangle {
+  width: 100%;
+  height: 24px;
+  font-size: 16px;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: white;
+  background-color: #003374;
+  padding: 2px 0 2px 10px; }

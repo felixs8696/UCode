@@ -10,6 +10,7 @@
       storePrimaryData: storePrimaryData,
       getPrimaryData: getPrimaryData,
       removePrimaryData: removePrimaryData,
+      resetPrimaryData: resetPrimaryData,
       storeProfessionalData: storeProfessionalData,
       getProfessionalData: getProfessionalData,
       removeProfessionalData: removeProfessionalData,

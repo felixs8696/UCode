@@ -27,3 +27,7 @@ textarea[readonly]:not(.cloned-text-input) {
 input[type="text"]:disabled {
   background: #ffffff;
 }
+
+info-card .item {
+  padding: 8px 10px 8px 10px;
+}
