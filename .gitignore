@@ -10,7 +10,11 @@ ucode/*
 !ucode/gulpfile.js
 !ucode/scss/
 !ucode/scss/*
+!ucode/scss/**/*
 !ucode/www/
 !ucode/www/*
 !ucode/www/**/*
+!ucode/www/app
+!ucode/www/app/*
+!ucode/www/app/**/*
 ucode/www/lib/*
