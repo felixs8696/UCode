@@ -17,4 +17,7 @@ ucode/*
 !ucode/www/app
 !ucode/www/app/*
 !ucode/www/app/**/*
+!ucode/www/app/shared
+!ucode/www/app/shared/*
+!ucode/www/app/shared/**/*
 ucode/www/lib/*
