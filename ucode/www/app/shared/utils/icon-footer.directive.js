@@ -9,7 +9,9 @@
     return {
       restrict: 'AE',
       scope: {
-        sectionList: '='
+        contactIcon: '=',
+        socialList: '=',
+        profList: '='
       },
       templateUrl: 'app/shared/utils/icon-footer.html'
     }

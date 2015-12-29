@@ -10,7 +10,7 @@ function Modal($ionicModal) {
         getTemplateModal: getTemplateModal
     };
 
-    function getModal(url, scope, vm) {
+    function getModal(url, scope) {
         return $ionicModal.fromTemplateUrl(url, {
             scope: scope
         });

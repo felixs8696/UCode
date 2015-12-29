@@ -32,4 +32,11 @@ function MainController(DataStorage, AddressService) {
     return iconList;
   }
 
+  vm.contactIcon = "img/contact.png";
+
+  vm.socialIconList =
+  ['img/facebook.png', 'img/Instagram.png','img/snapchat.jpg', 'img/twitter.png'];
+
+  vm.profIconList = ['img/linkedin.png'];
+
 }
