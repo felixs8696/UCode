@@ -1,4 +1,9 @@
-<ion-nav-view view-title="Primary">
+<ion-view view-title="Primary">
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="vm.showEditModal()">
+      <i class="icon ion-compose"></i>
+    </button>
+  </ion-nav-buttons>
   <ion-content>
     <info-card title="Name" show-footer=false>
       <p ng-if="vm.primaryInfo.name != null" type="text">{{vm.primaryInfo.name}}</p>
@@ -35,10 +40,9 @@
       </div>
       <p ng-if="vm.primaryInfo.websites.length == 0 && !vm.addWebsiteToggle">None Yet</p>
     </info-card>
-
+<!--
     <div class="padding text-right">
-      <button class="button" ui-sref="app.primary.edit-primary">Edit Info</button>
       <button class="button" ng-click="vm.resetInfo()">Reset Info</button>
-    </div>
+    </div> -->
   </ion-content>
-</ion-nav-view>
+</ion-view>

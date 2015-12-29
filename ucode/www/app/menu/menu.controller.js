@@ -2,45 +2,50 @@ angular
   .module('ucode.menu')
   .controller('MenuController', MenuController);
 
-MenuController.$inject = ['$scope', '$ionicModal', '$timeout', '$ionicHistory'];
+MenuController.$inject = ['$scope', '$ionicModal', '$timeout', '$ionicHistory', '$state'];
 
-function MenuController($scope, $ionicModal, $timeout, $ionicHistory) {
+function MenuController($scope, $ionicModal, $timeout, $ionicHistory, $state) {
+  var vm = this;
   // Form data for the login modal
-  $scope.loginData = {};
+  vm.loginData = {};
+  vm.goBack = goBack;
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
-    $scope.modal = modal;
+    vm.modal = modal;
   });
 
-  $scope.goBack = function() {
+  function goBack() {
+    // $state.go("app.primary");
+    // $state.go($ionicHistory.backView().stateId);
+    // $ionicHistory.backView().stateName
     $ionicHistory.goBack();
-    console.log($ionicHistory.backView());
+    // console.log($ionicHistory.backView().stateId);
     console.log($ionicHistory.viewHistory());
     console.log("enabledBack: " + $ionicHistory.enabledBack());
     console.log("!!($ionicHistory.backView() && $ionicHistory.backView().historyId === $ionicHistory.currentView().historyId): " + !!($ionicHistory.backView() && $ionicHistory.backView().historyId === $ionicHistory.currentView().historyId));
   }
 
   // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
+  function closeLogin() {
+    vm.modal.hide();
   };
 
   // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
+  function login() {
+    vm.modal.show();
   };
 
   // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+  function doLogin() {
+    console.log('Doing login', vm.loginData);
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
-      $scope.closeLogin();
+      closeLogin();
     }, 1000);
   };
 }

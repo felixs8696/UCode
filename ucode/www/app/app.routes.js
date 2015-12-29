@@ -27,14 +27,20 @@ angular
           templateUrl: 'app/primary/primary.html',
           controller: 'PrimaryController as vm'
         }
-      }
+      },
+      cache: false
     })
 
-    .state('app.primary.edit-primary', {
-      url: '/primary-contact-settings/edit',
-      templateUrl: 'app/primary/edit-primary.html',
-      controller: 'PrimaryController as vm'
-    })
+    // .state('app.edit-primary', {
+    //   url: '/primary-contact-settings/edit',
+    //   views: {
+    //     'menuContent': {
+    //       templateUrl: 'app/primary/edit-primary.html',
+    //       controller: 'PrimaryController as vm'
+    //     }
+    //   },
+    //   cache: false
+    // })
 
     .state('app.professional', {
         url: '/professional-contact-settings',

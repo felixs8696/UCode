@@ -1,6 +1,7 @@
 angular
   .module('ucode')
-  .run(function($ionicPlatform, DataStorage) {
+  .run(function($log, $ionicPlatform, DataStorage, Logger) {
+    Logger.setLog($log);
     if (!DataStorage.getPrimaryData()) {
       var initialPrimaryData = {
         name: null,

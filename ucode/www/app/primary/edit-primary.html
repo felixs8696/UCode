@@ -1,4 +1,13 @@
-<ion-view view-title="Edit Primary">
+<ion-modal-view class='modal'>
+  <ion-header-bar class="bar-positive">
+    <button class="button button-clear" ng-click="vm.showResetWarning()">
+      Clear All
+    </button>
+    <h1 class="subtitle title">Edit Primary</h1>
+    <button class="button button-clear" ng-click="vm.closeEditModal()">
+      Done
+    </button>
+  </ion-header-bar>
   <ion-content>
     <info-card title="Name" footer-action="vm.toggleReplaceName()" toggle-save={{vm.replaceNameToggle}} save-action="vm.saveName(vm.newName)" replace="{{vm.primaryInfo.name != null}}">
       <input class="card-input" ng-if="vm.primaryInfo.name != null" type="text" value="{{vm.primaryInfo.name}}" disabled>
@@ -48,4 +57,4 @@
       <input class="card-input" type="url" ng-model="vm.newWebsite" placeholder="Enter website here..." ng-if="vm.addWebsiteToggle">
     </info-card>
   </ion-content>
-</ion-view>
+</ion-modal-view>

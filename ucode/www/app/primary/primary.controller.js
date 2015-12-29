@@ -2,9 +2,9 @@ angular
   .module('ucode.primary')
   .controller('PrimaryController', PrimaryController);
 
-PrimaryController.$inject = ['$state', 'DataStorage', '$ionicHistory', '$window', 'AddressService'];
+PrimaryController.$inject = ['$scope', '$state', 'DataStorage', '$ionicHistory', '$window', 'AddressService', 'Modal', 'Popup'];
 
-function PrimaryController($state, DataStorage, $ionicHistory, $window, AddressService) {
+function PrimaryController($scope, $state, DataStorage, $ionicHistory, $window, AddressService, Modal, Popup) {
   var vm = this;
   var nullAddress = {
     street: null,
@@ -50,7 +50,25 @@ function PrimaryController($state, DataStorage, $ionicHistory, $window, AddressS
   vm.saveWebsite = saveWebsite;
   vm.isNullAddress = AddressService.isNullAddress;
   vm.formattedAddress = AddressService.formattedAddress;
-  vm.resetInfo = resetInfo;
+  vm.showResetWarning = showResetWarning;
+  vm.showEditModal = showEditModal;
+  vm.closeEditModal = closeEditModal;
+
+  vm.editModal = Modal.getModal('app/primary/edit-primary.html', $scope);
+
+  function showEditModal() {
+    vm.editModal
+      .then(function(modal) {
+        modal.show();
+      });
+  }
+
+  function closeEditModal() {
+    vm.editModal
+      .then(function(modal) {
+        modal.hide();
+      });
+  }
 
   function toggleReplaceName() {
     vm.replaceNameToggle = true;
@@ -130,11 +148,14 @@ function PrimaryController($state, DataStorage, $ionicHistory, $window, AddressS
     }
   }
 
-  function resetInfo() {
+  function resetPrimaryInfo() {
     DataStorage.resetPrimaryData();
     $ionicHistory.clearCache();
     $state.go($state.current, {}, {reload: true});
-    // $window.location.reload(true)
+  }
+
+  function showResetWarning() {
+    Popup.withFunc("Warning", "Are you sure you want to clear all your primary contact data?", "Clearing Primary data message shown", resetPrimaryInfo);
   }
 
 }
