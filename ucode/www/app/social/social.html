@@ -1,5 +1,6 @@
 <ion-view view-title="Social">
   <ion-content>
-    <h1>Social</h1>
+    <handle-display ng-repeat="media in vm.selectedMedia" icon-img="media.img"
+    title="media.title" username="media.username" url="media.url"></handle-display>
   </ion-content>
 </ion-view>

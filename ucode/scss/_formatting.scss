@@ -67,3 +67,35 @@ info-card .item {
   background-size: cover;
   display: inline-block;
 }
+
+//======== Handler Section ========
+.handle-container {
+  width: 100%;
+  border-top: 1px solid $icon-gray;
+  padding: 10px 0;
+}
+
+.handle-icon-section {
+  width: 20%;
+  display: inline-block;
+  padding: 10px;
+}
+
+.handle-description-section {
+  width: 78%;
+  display: inline-block;
+}
+
+.handle-title {
+  font-weight: bold;
+}
+
+.handle-description-section p {
+  margin: 0;
+}
+
+.handle-description-section a {
+  text-decoration: none;
+  font-weight: 300;
+  color: $font-gray;
+}

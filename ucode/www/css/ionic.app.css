@@ -9782,6 +9782,31 @@ info-card .item {
   background-size: cover;
   display: inline-block; }
 
+.handle-container {
+  width: 100%;
+  border-top: 1px solid #C0C0C0;
+  padding: 10px 0; }
+
+.handle-icon-section {
+  width: 20%;
+  display: inline-block;
+  padding: 10px; }
+
+.handle-description-section {
+  width: 78%;
+  display: inline-block; }
+
+.handle-title {
+  font-weight: bold; }
+
+.handle-description-section p {
+  margin: 0; }
+
+.handle-description-section a {
+  text-decoration: none;
+  font-weight: 300;
+  color: #ABABAB; }
+
 .positive-background {
   background-color: #003374;
   color: white; }
