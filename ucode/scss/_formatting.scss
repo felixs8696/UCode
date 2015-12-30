@@ -34,30 +34,32 @@ info-card .item {
 }
 
 //======== Icon Footer ========
-.fixed-bottom {
-  overflow-x: scroll;
-  overflow-y: hidden;
+// .fixed-bottom {
+//   overflow-x: scroll;
+//   overflow-y: hidden;
+//   position: fixed;
+//   bottom: 0;
+// }
+
+.footer-container {
+  width: 100%;
+  text-align: center;
   position: fixed;
   bottom: 0;
+  padding: 5px;
 }
-
 .wrapper {
-  margin: 0px 5% 12px 5%;
-	width: 90%; /* arbitary for demo only */
+  // margin: 0 0 8px 0;
+	width: 90%;
 	white-space: nowrap;
 	overflow-y: hidden;
-	overflow-x: hidden;
+	overflow-x: scroll;
 	-webkit-overflow-scrolling: touch;
-}
-
-.internal {
-  overflow-x: scroll;
-  // padding-right: 15px;
+  display: inline-block;
 }
 
 .circle-icon-container {
   border-radius: 50%;
-  //border: 1px solid $border-gray;
   overflow: hidden;
   height: 0;
   width: 50px;

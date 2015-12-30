@@ -9753,23 +9753,20 @@ input[type="text"]:disabled {
 info-card .item {
   padding: 8px 10px 8px 10px; }
 
-.fixed-bottom {
-  overflow-x: scroll;
-  overflow-y: hidden;
+.footer-container {
+  width: 100%;
+  text-align: center;
   position: fixed;
-  bottom: 0; }
+  bottom: 0;
+  padding: 5px; }
 
 .wrapper {
-  margin: 0px 5% 12px 5%;
   width: 90%;
-  /* arbitary for demo only */
   white-space: nowrap;
   overflow-y: hidden;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch; }
-
-.internal {
-  overflow-x: scroll; }
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  display: inline-block; }
 
 .circle-icon-container {
   border-radius: 50%;
