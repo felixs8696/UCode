@@ -2,12 +2,12 @@ angular
   .module('ucode.social')
   .controller('SocialController', SocialController);
 
-SocialController.$inject = ['$scope', 'Modal', 'DataStorage', 'Popup', '$ionicHistory', '$state'];
+SocialController.$inject = ['$scope', 'Modal', 'SocialSelectModel', 'Popup', '$ionicHistory', '$state'];
 
-function SocialController($scope, Modal, DataStorage, Popup, $ionicHistory, $state) {
+function SocialController($scope, Modal, SocialSelectModel, Popup, $ionicHistory, $state) {
   var vm = this;
 
-  vm.allSocialMedia = DataStorage.getSocialData();
+  vm.allSocialMedia = SocialSelectModel.socialMediaData;
   vm.newInputs = [];
 
   vm.editModal = Modal.getModal('app/social/edit-social.html', $scope);
@@ -17,9 +17,9 @@ function SocialController($scope, Modal, DataStorage, Popup, $ionicHistory, $sta
   vm.showAddModal = showAddModal;
   vm.closeAddModal = closeAddModal;
   vm.toggleMedia = toggleMedia;
-  vm.allMediaSelected = allMediaSelected;
-  vm.selectAllMedia = selectAllMedia;
-  vm.deselectAllMedia = deselectAllMedia;
+  vm.noMediaSelected = SocialSelectModel.noMediaSelected;
+  vm.selectAllMedia = SocialSelectModel.selectAllMedia;
+  vm.deselectAllMedia = SocialSelectModel.deselectAllMedia;
   vm.showResetWarning = showResetWarning;
 
   function showEditModal() {
@@ -52,52 +52,17 @@ function SocialController($scope, Modal, DataStorage, Popup, $ionicHistory, $sta
   }
 
   function updateAll() {
-    for (var i = 0; i<vm.allSocialMedia.length; i++) {
-      if (vm.newInputs[i]) {
-        if (vm.newInputs[i].username) {
-            vm.allSocialMedia[i].username = vm.newInputs[i].username;
-        }
-        if (vm.newInputs[i].url) {
-            vm.allSocialMedia[i].url = vm.newInputs[i].url;
-        }
-      }
-    };
-    DataStorage.storeSocialData(vm.allSocialMedia);
+    SocialSelectModel.updateAll(vm.newInputs);
     vm.newInputs = [];
   }
 
   function toggleMedia(media) {
     media.selected = !media.selected;
-    DataStorage.storeSocialData(vm.allSocialMedia);
-  }
-
-  function allMediaSelected() {
-    for (var i = 0; i<vm.allSocialMedia.length; i++) {
-      if (vm.allSocialMedia[i].selected == false) return false;
-    };
-    return true;
-  }
-
-  function selectAllMedia() {
-    for (var i = 0; i<vm.allSocialMedia.length; i++) {
-      vm.allSocialMedia[i].selected = true;
-    };
-  }
-
-  function deselectAllMedia() {
-    for (var i = 0; i < vm.allSocialMedia.length; i++) {
-      vm.allSocialMedia[i].selected = false;
-    };
-  }
-
-  function resetSocialInfo() {
-    DataStorage.resetSocialData();
-    $ionicHistory.clearCache();
-    $state.go($state.current, {}, {reload: true});
+    SocialSelectModel.storeSocialData(vm.allSocialMedia);
   }
 
   function showResetWarning() {
-    Popup.withFunc("Warning", "Are you sure you want to clear all your social contact data?", "Clearing social data message shown", resetSocialInfo);
+    Popup.withFunc("Warning", "Are you sure you want to clear all your social contact data?", "Clearing social data message shown", SocialSelectModel.resetSocialInfo);
   }
 
 }

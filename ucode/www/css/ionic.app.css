@@ -9760,6 +9760,10 @@ a.button {
   float: right;
   text-align: right; }
 
+.add-media {
+  min-height: inherit;
+  line-height: 30px; }
+
 .info-card-container {
   margin: 10px 0 10px 0; }
 

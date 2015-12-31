@@ -1,8 +1,7 @@
 <ion-modal-view class='modal'>
   <ion-header-bar class="bar-positive">
-    <!-- <i class="header-left-icon-button icon ion-ios-plus-empty" ng-click="vm.showAddModal()"></i> -->
-    <button class="button button-clear" ng-click="vm.showAddModal()">
-      Add Media...
+    <button class="button button-clear" ng-click="vm.showResetWarning()">
+      Reset Data
     </button>
     <h1 class="subtitle title">Edit Social</h1>
     <button class="button button-clear" ng-click="vm.closeEditModal()">
@@ -10,6 +9,9 @@
     </button>
   </ion-header-bar>
   <ion-content>
+    <div class="center-button-container padding text-center" ng-if="vm.noMediaSelected()">
+      <button class="center-button button button-positive" ng-click="vm.showAddModal()">Add Media</button>
+    </div>
     <info-card ng-repeat="media in vm.allSocialMedia" ng-if="media.selected" title="{{media.title}}" footer-action="vm.toggleSave()" toggle-save={{vm.replaceNameToggle}} save-action="vm.saveName(vm.newName)">
       <input class="card-input" ng-if="media.username != null" type="text" placeholder="{{media.username}}" ng-model="vm.newInputs[$index].username">
       <input class="card-input" ng-if="media.username == null" type="text" placeholder="Enter Username..." ng-model="vm.newInputs[$index].username">
