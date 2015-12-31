@@ -51,20 +51,6 @@ function SocialController($scope, Modal, DataStorage, Popup, $ionicHistory, $sta
       });
   }
 
-  // function updateUsername(media, new_val) {
-  //   media.username = new_val;
-  //   if (media.username) {
-  //       DataStorage.storeSocialData(vm.allSocialMedia);
-  //   }
-  // }
-  //
-  // function updateUrl(media, new_val) {
-  //   media.url = new_val;
-  //   if (media.url) {
-  //       DataStorage.storeSocialData(vm.allSocialMedia);
-  //   }
-  // }
-
   function updateAll() {
     for (var i = 0; i<vm.allSocialMedia.length; i++) {
       if (vm.newInputs[i]) {
@@ -99,7 +85,7 @@ function SocialController($scope, Modal, DataStorage, Popup, $ionicHistory, $sta
   }
 
   function deselectAllMedia() {
-    for (var i = 0; i<vm.allSocialMedia.length; i++) {
+    for (var i = 0; i < vm.allSocialMedia.length; i++) {
       vm.allSocialMedia[i].selected = false;
     };
   }

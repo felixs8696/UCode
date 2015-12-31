@@ -6,50 +6,32 @@ PrimaryController.$inject = ['$scope', '$state', 'DataStorage', '$ionicHistory',
 
 function PrimaryController($scope, $state, DataStorage, $ionicHistory, $window, AddressService, Modal, Popup) {
   var vm = this;
-  var nullAddress = {
-    street: null,
-    city: null,
-    state: null,
-    country: null,
-    zipcode: null
-  };
 
-  vm.replaceNameToggle = false;
-  vm.addEmailToggle = false;
-  vm.addPhoneToggle = false;
-  vm.replaceSchoolToggle = false;
-  vm.replaceAddressToggle = false;
-  vm.addWebsiteToggle = false;
-
-  vm.newEmail = null;
-  vm.newName = null;
-  vm.newPhone = null;
-  vm.newSchool = null;
-  vm.newAddress = {
-    street: null,
-    city: null,
-    state: null,
-    country: null,
-    zipcode: null
+  var initialState = {
+    name: null,
+    email: null,
+    phone: null,
+    school: null,
+    address: {
+      street: null,
+      city: null,
+      state: null,
+      country: null,
+      zipcode: null
+    },
+    website: null
   };
-  vm.newWebsite = null;
 
   vm.primaryInfo = DataStorage.getPrimaryData();
+  vm.newInputs = initialState;
 
-  vm.toggleReplaceName = toggleReplaceName;
-  vm.saveName = saveName;
-  vm.toggleAddEmail = toggleAddEmail;
-  vm.saveEmail = saveEmail;
-  vm.toggleAddPhone = toggleAddPhone;
-  vm.savePhone = savePhone;
-  vm.toggleReplaceSchool = toggleReplaceSchool;
-  vm.saveSchool = saveSchool;
-  vm.toggleReplaceAddress = toggleReplaceAddress;
-  vm.saveAddress = saveAddress;
-  vm.toggleAddWebsite = toggleAddWebsite;
-  vm.saveWebsite = saveWebsite;
   vm.isNullAddress = AddressService.isNullAddress;
   vm.formattedAddress = AddressService.formattedAddress;
+
+  vm.addNewEmail = addNewEmail;
+  vm.addNewPhone = addNewPhone;
+  vm.addNewWebsite = addNewWebsite;
+  vm.updateAllPrimary = updateAllPrimary;
   vm.showResetWarning = showResetWarning;
   vm.showEditModal = showEditModal;
   vm.closeEditModal = closeEditModal;
@@ -64,88 +46,51 @@ function PrimaryController($scope, $state, DataStorage, $ionicHistory, $window, 
   }
 
   function closeEditModal() {
+    updateAllPrimary();
     vm.editModal
       .then(function(modal) {
         modal.hide();
       });
   }
 
-  function toggleReplaceName() {
-    vm.replaceNameToggle = true;
-  }
-
-  function saveName(name) {
-    vm.replaceNameToggle = false;
-    vm.newName = null;
-    if (name) {
-        vm.primaryInfo.name = name;
-        DataStorage.storePrimaryData(vm.primaryInfo);
+  function addNewEmail() {
+    if (vm.newInputs) {
+      if (vm.newInputs.email) {
+        vm.primaryInfo.emails.push(vm.newInputs.email);
+        vm.newInputs.email = null;
+      }
     }
   }
 
-  function toggleAddEmail() {
-    vm.addEmailToggle = true;
-  }
-
-  function saveEmail(email) {
-    vm.addEmailToggle = false;
-    vm.newEmail = null;
-    if (email) {
-        vm.primaryInfo.emails.push(email);
-        DataStorage.storePrimaryData(vm.primaryInfo);
+  function addNewPhone() {
+    if (vm.newInputs) {
+      if (vm.newInputs.phone) {
+        vm.primaryInfo.phones.push(vm.newInputs.phone);
+        vm.newInputs.phone = null;
+      }
     }
   }
 
-  function toggleAddPhone() {
-    vm.addPhoneToggle = true;
-  }
-
-  function savePhone(number) {
-    vm.addPhoneToggle = false;
-    vm.newPhone = null;
-    if (number) {
-        vm.primaryInfo.phones.push(number);
-        DataStorage.storePrimaryData(vm.primaryInfo);
+  function addNewWebsite() {
+    if (vm.newInputs) {
+      if (vm.newInputs.website) {
+        vm.primaryInfo.websites.push(vm.newInputs.website);
+        vm.newInputs.website = null;
+      }
     }
   }
 
-  function toggleReplaceSchool() {
-    vm.replaceSchoolToggle = true;
-  }
-
-  function saveSchool(school) {
-    vm.replaceSchoolToggle = false;
-    vm.newSchool = null;
-    if (school) {
-        vm.primaryInfo.school = school;
-        DataStorage.storePrimaryData(vm.primaryInfo);
+  function updateAllPrimary() {
+    if (vm.newInputs) {
+      if (vm.newInputs.name) vm.primaryInfo.name = vm.newInputs.name;
+      if (vm.newInputs.email) vm.primaryInfo.emails.push(vm.newInputs.email);
+      if (vm.newInputs.phone) vm.primaryInfo.phones.push(vm.newInputs.phone);
+      if (vm.newInputs.school) vm.primaryInfo.school = vm.newInputs.school;
+      if (!AddressService.isNullAddress(vm.newInputs.address)) vm.primaryInfo.address = vm.newInputs.address;
+      if (vm.newInputs.website) vm.primaryInfo.websites.push(vm.newInputs.website);
     }
-  }
-
-  function toggleReplaceAddress() {
-    vm.replaceAddressToggle = true;
-  }
-
-  function saveAddress(address) {
-    vm.replaceAddressToggle = false;
-    vm.newAddress = nullAddress;
-    if (!AddressService.isNullAddress(address)) {
-        vm.primaryInfo.address = address;
-        DataStorage.storePrimaryData(vm.primaryInfo);
-    }
-  }
-
-  function toggleAddWebsite() {
-    vm.addWebsiteToggle = true;
-  }
-
-  function saveWebsite(site) {
-    vm.addWebsiteToggle = false;
-    vm.newWebsite = null;
-    if (site) {
-        vm.primaryInfo.websites.push(site);
-        DataStorage.storePrimaryData(vm.primaryInfo);
-    }
+    DataStorage.storePrimaryData(vm.primaryInfo);
+    vm.newInputs = initialState;
   }
 
   function resetPrimaryInfo() {

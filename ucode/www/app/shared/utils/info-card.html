@@ -7,17 +7,5 @@
     <div class="item item-text-wrap">
       <ng-transclude></ng-transclude>
     </div>
-
-    <div class="item item-divider" ng-if="toggleSave == 'false'" ng-click="footerAction()">
-      <div ng-if="replace=='false'">
-        Add {{title}}
-      </div>
-      <div ng-if="replace=='true'">
-        Replace {{title}}
-      </div>
-    </div>
-    <div class="item item-divider positive-background" ng-if="toggleSave == 'true'" ng-click="saveAction()">
-        Save New {{title}}
-    </div>
   </div>
 </div>

@@ -10,12 +10,7 @@
       restrict: 'AE',
       transclude: true,
       scope: {
-        title: "@",
-        showFooter:"@",
-        footerAction: "&",
-        toggleSave: "@",
-        saveAction: "&",
-        replace: "@"
+        title: "@"
       },
       templateUrl: "app/shared/utils/info-card.html"
     }

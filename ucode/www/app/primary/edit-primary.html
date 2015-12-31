@@ -9,52 +9,45 @@
     </button>
   </ion-header-bar>
   <ion-content>
-    <info-card title="Name" footer-action="vm.toggleReplaceName()" toggle-save={{vm.replaceNameToggle}} save-action="vm.saveName(vm.newName)" replace="{{vm.primaryInfo.name != null}}">
-      <input class="card-input" ng-if="vm.primaryInfo.name != null" type="text" value="{{vm.primaryInfo.name}}" disabled>
-      <input class="card-input" type="text" ng-if="vm.primaryInfo.name == null && !vm.replaceNameToggle" value="None Yet" disabled/>
-      <input class="card-input" type="text" ng-model="vm.newName" placeholder="Enter name here..." ng-if="vm.replaceNameToggle">
+    <info-card title="Name">
+      <input class="card-input" ng-if="vm.primaryInfo.name != null" type="text" placeholder="{{vm.primaryInfo.name}}" ng-model="vm.newInputs.name">
+      <input class="card-input" ng-if="vm.primaryInfo.name == null" type="text" placeholder="Enter name here..." ng-model="vm.newInputs.name">
     </info-card>
 
-    <info-card title="Emails" footer-action="vm.toggleAddEmail()" toggle-save={{vm.addEmailToggle}} save-action="vm.saveEmail(vm.newEmail)" replace=false>
+    <info-card title="Emails">
       <div ng-repeat="email in vm.primaryInfo.emails">
-        <input class="card-input" type="text" ng-if="email" value="{{email}}"/ disabled>
+        <input class="card-input" type="email" ng-if="email" placeholder="{{email}}" ng-model="vm.primaryInfo.emails[$index]">
       </div>
-      <input class="card-input" type="text" ng-if="vm.primaryInfo.emails.length == 0 && !vm.addEmailToggle" value="None Yet" disabled/>
-      <input class="card-input" type="email" ng-model="vm.newEmail" placeholder="Enter email here..." ng-if="vm.addEmailToggle">
+      <input class="card-input" type="email" ng-keyup="$event.keyCode == 13 && vm.addNewEmail()" ng-model="vm.newInputs.email" placeholder="Enter another email here...">
     </info-card>
 
-    <info-card title="Phone Numbers" footer-action="vm.toggleAddPhone()" toggle-save={{vm.addPhoneToggle}} save-action="vm.savePhone(vm.newPhone)" replace=false>
+    <info-card title="Phone Numbers">
       <div ng-repeat="number in vm.primaryInfo.phones">
-        <input class="card-input" type="text" ng-if="number" value="{{number}}"/ disabled>
+        <input class="card-input" type="tel" ng-if="number" placeholder="{{number}}" ng-model="vm.primaryInfo.phones[$index]">
       </div>
-      <input class="card-input" type="text" ng-if="vm.primaryInfo.phones.length == 0 && !vm.addPhoneToggle" value="None Yet" disabled/>
-      <input class="card-input" type="tel" ng-model="vm.newPhone" placeholder="Enter number here..." ng-if="vm.addPhoneToggle">
+      <input class="card-input" type="tel" ng-keyup="$event.keyCode == 13 && vm.addNewPhone()" ng-model="vm.newInputs.phone" placeholder="Enter another number here...">
     </info-card>
 
-    <info-card title="Current School" footer-action="vm.toggleReplaceSchool()" toggle-save={{vm.replaceSchoolToggle}} save-action="vm.saveSchool(vm.newSchool)" replace="{{vm.primaryInfo.school != null}}">
-      <input class="card-input" ng-if="vm.primaryInfo.school != null" type="text" value="{{vm.primaryInfo.school}}" disabled>
-      <input class="card-input" type="text" ng-if="vm.primaryInfo.school == null && !vm.replaceSchoolToggle" value="None Yet" disabled/>
-      <input class="card-input" type="text" ng-model="vm.newSchool" placeholder="Enter school here..." ng-if="vm.replaceSchoolToggle">
+    <info-card title="Current School">
+      <input class="card-input" ng-if="vm.primaryInfo.school != null" type="text" placeholder="{{vm.primaryInfo.school}}" ng-model="vm.newInputs.school">
+      <input class="card-input" ng-if="vm.primaryInfo.school == null" type="text" placeholder="Enter school here..." ng-model="vm.newInputs.school">
     </info-card>
 
-    <info-card title="Address" footer-action="vm.toggleReplaceAddress()" toggle-save={{vm.replaceAddressToggle}} save-action="vm.saveAddress(vm.newAddress)" replace="{{!vm.isNullAddress(vm.primaryInfo.address)}}">
+    <info-card title="Address">
       <textarea ng-if="!vm.isNullAddress(vm.primaryInfo.address)" rows=3 readonly>{{vm.formattedAddress(vm.primaryInfo.address)}}</textarea>
-      <p ng-if="vm.isNullAddress(vm.primaryInfo.address) && !vm.replaceAddressToggle">None Yet</p>
-      <div ng-if="vm.replaceAddressToggle">
-        <input class="card-input" type="text" ng-model="vm.newAddress.street" placeholder="Street Address...">
-        <input class="card-input" type="text" ng-model="vm.newAddress.city" placeholder="City...">
-        <input class="card-input" type="text" ng-model="vm.newAddress.state" placeholder="State...">
-        <input class="card-input" type="text" ng-model="vm.newAddress.country" placeholder="Country...">
-        <input class="card-input" type="text" ng-model="vm.newAddress.zipcode" placeholder="Zipcode...">
-      </div>
+      <p ng-if="!vm.isNullAddress(vm.primaryInfo.address)">Edit Address</p>
+      <input class="card-input" type="text" ng-model="vm.newInputs.address.street" placeholder="Street Address...">
+      <input class="card-input" type="text" ng-model="vm.newInputs.address.city" placeholder="City...">
+      <input class="card-input" type="text" ng-model="vm.newInputs.address.state" placeholder="State...">
+      <input class="card-input" type="text" ng-model="vm.newInputs.address.country" placeholder="Country...">
+      <input class="card-input" type="text" ng-model="vm.newInputs.address.zipcode" placeholder="Zipcode...">
     </info-card>
 
-    <info-card title="Websites" footer-action="vm.toggleAddWebsite()" toggle-save={{vm.addWebsiteToggle}} save-action="vm.saveWebsite(vm.newWebsite)" replace=false>
+    <info-card title="Websites">
       <div ng-repeat="site in vm.primaryInfo.websites">
-        <input class="card-input" type="text" ng-if="site" value="{{site}}"/ disabled>
+        <input class="card-input" type="url" ng-if="site" placeholder="{{site}}" ng-model="vm.primaryInfo.site[$index]">
       </div>
-      <input class="card-input" type="text" ng-if="vm.primaryInfo.websites.length == 0 && !vm.addWebsiteToggle" value="None Yet" disabled/>
-      <input class="card-input" type="url" ng-model="vm.newWebsite" placeholder="Enter website here..." ng-if="vm.addWebsiteToggle">
+      <input class="card-input" type="url" ng-keyup="$event.keyCode == 13 && vm.addNewWebsite()" ng-model="vm.newInputs.website" placeholder="Enter another website here...">
     </info-card>
   </ion-content>
 </ion-modal-view>
