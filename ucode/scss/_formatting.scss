@@ -1,4 +1,40 @@
 @import "_theme";
+//======== General ========
+.header-left-icon-button{
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  bottom: 5px;
+  padding-left: 6px;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.header-right-icon-button{
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  bottom: 5px;
+  padding-right: 6px;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 32px;
+  cursor: pointer;
+}
+
+.text-left-50 {
+  width: 50%;
+  float: left;
+  text-align: left;
+}
+
+.text-right-50 {
+  width: 50%;
+  float: right;
+  text-align: right;
+}
 
 //======== Information Cards ========
 .info-card-container{
@@ -34,12 +70,6 @@ info-card .item {
 }
 
 //======== Icon Footer ========
-// .fixed-bottom {
-//   overflow-x: scroll;
-//   overflow-y: hidden;
-//   position: fixed;
-//   bottom: 0;
-// }
 
 .footer-container {
   width: 100%;
@@ -48,8 +78,8 @@ info-card .item {
   bottom: 0;
   padding: 5px;
 }
+
 .wrapper {
-  // margin: 0 0 8px 0;
 	width: 90%;
 	white-space: nowrap;
 	overflow-y: hidden;
@@ -70,11 +100,11 @@ info-card .item {
   display: inline-block;
 }
 
-//======== Handler Section ========
+//======== Handles Section ========
 .handle-container {
   width: 100%;
   border-top: 1px solid $icon-gray;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .handle-icon-section {
@@ -86,6 +116,9 @@ info-card .item {
 .handle-description-section {
   width: 78%;
   display: inline-block;
+  padding-top: 11px;
+  padding-left: 5px;
+  vertical-align: top;
 }
 
 .handle-title {
@@ -96,8 +129,90 @@ info-card .item {
   margin: 0;
 }
 
+.handle-username {
+  color: $font-gray;
+  font-style: italic;
+}
+
 .handle-description-section a {
   text-decoration: none;
   font-weight: 300;
   color: $font-gray;
+}
+
+//======== Media Grid ========
+
+.media-grid-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.media-grid-icon {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 0;
+  width: 63px;
+  height: 63px;
+  margin: 5px 10px 5px 10px;
+  background: no-repeat center center;
+  background-size: cover;
+  display: inline-block;
+}
+
+.unselected {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  opacity: .2;
+  border: 1px solid $border-gray;
+}
+
+// .unselected:hover {
+//   -webkit-filter: grayscale(0);
+//   filter: grayscale(0);
+//   border: none;
+//   opacity: 1;
+// }
+
+.selected {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+  border: none;
+  opacity: 1;
+}
+
+// .selected:hover {
+//   -webkit-filter: grayscale(1);
+//   filter: grayscale(1);
+//   opacity: .2;
+//   border: 1px solid $border-gray;
+// }
+
+.media-grid-icon .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+// .media-grid-icon .overlay i{
+//   position: absolute;
+//   padding-top: 12px;
+//   margin-left: 22px;
+//   margin-right: auto;
+//   font-size: 40px;
+// }
+
+.media-grid-icon:hover .add-overlay {
+    display: block;
+    color: $font-gray;
+    background: rgba(255, 255, 255, .2);
+}
+
+.media-grid-icon:hover .remove-overlay {
+    display: block;
+    color: #FFF;
+    background: rgba(0, 0, 0, .2);
 }

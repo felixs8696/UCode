@@ -1,6 +1,11 @@
 <ion-view view-title="Social">
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="vm.showEditModal()">
+      <i class="icon ion-compose"></i>
+    </button>
+  </ion-nav-buttons>
   <ion-content>
-    <handle-display ng-repeat="media in vm.selectedMedia" icon-img="media.img"
+    <handle-display ng-repeat="media in vm.allSocialMedia" ng-if="media.selected" icon-img="media.img"
     title="media.title" username="media.username" url="media.url"></handle-display>
   </ion-content>
 </ion-view>

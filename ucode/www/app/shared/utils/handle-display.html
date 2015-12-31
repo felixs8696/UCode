@@ -4,7 +4,7 @@
   </div>
   <div class="handle-description-section">
     <p class="handle-title">{{title}}</h3>
-    <p>{{username}}</p>
-    <a href="http://{{url}}">{{url}}</a>
+    <p class="handle-username">{{username || "Username"}}</p>
+    <a href="http://{{url}}">{{url || title + " URL"}}</a>
   </div>
 </div>

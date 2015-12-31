@@ -8,7 +8,6 @@ function MainController(DataStorage, AddressService) {
   var vm = this;
   vm.primaryData = DataStorage.getPrimaryData();
   vm.primaryIconList = primaryIconList();
-  console.log(vm.primaryData);
   vm.name = vm.primaryData.name || "UCode";
 
   function primaryIconList() {
