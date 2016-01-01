@@ -14,8 +14,6 @@ function MainModel(DataStorage, AddressService) {
 
   function valueIsNotNull(key, val) {
     if ((key == 'emails' || key == 'phones' || key == 'websites') && val.length != 0) {
-      console.log(key);
-      console.log(val);
       return true;
     }
     if ((key == 'name' || key == 'school') && val) {

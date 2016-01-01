@@ -2,9 +2,9 @@ angular
   .module('ucode.main')
   .controller('MainController', MainController);
 
-MainController.$inject = ['MainModel', 'AddressService', 'MainModel'];
+MainController.$inject = ['MainModel', 'AddressService', 'MainModel', '$ionicScrollDelegate'];
 
-function MainController(MainModel, AddressService, MainModel) {
+function MainController(MainModel, AddressService, MainModel, $ionicScrollDelegate) {
   var vm = this;
   vm.primaryData = MainModel.primaryData;
   vm.name = vm.primaryData.name.value || "UCode";
@@ -14,5 +14,4 @@ function MainController(MainModel, AddressService, MainModel) {
 
   vm.socialMedia = MainModel.socialMedia;
   vm.profMedia = MainModel.profMedia;
-
 }

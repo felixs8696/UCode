@@ -1,20 +1,30 @@
 <ion-view view-title="{{vm.name}}">
   <ion-content>
-    <div class="text-center ucode-container">
-      <div class="text-center ucode-title">U Code</div>
-      <img class="ucode-placeholder-image" src="img/qrcode.png">
+    <div id="container" class="main-container">
+      <div class="ucode-toggle">
+        <label class="toggle toggle-calm disable-user-behavior">
+          <input type="checkbox" ng-model="ucodeMode" class="ng-pristine ng-untouched ng-valid">
+          <div class="track"><div class="handle"></div></div>
+        </label>
+      </div>
+      <div class="text-center ucode-container">
+        <div class="text-center ucode-title">U Code</div>
+        <img class="ucode-placeholder-image" src="img/qrcode.png">
+      </div>
+      <info-section title="Primary">
+          <about-section section-list="vm.primaryData"></about-section>
+      </info-section>
+      <info-section title="Social">
+          <media-icon-list media-list="vm.socialMedia"></media-icon-list>
+      </info-section>
+      <info-section title="Professional">
+          <media-icon-list media-list="vm.profMedia"></media-icon-list>
+      </info-section>
     </div>
-    <info-section title="Primary">
-        <about-section section-list="vm.primaryData"></about-section>
-    </info-section>
-    <info-section title="Social">
-        <media-icon-list media-list="vm.socialMedia"></media-icon-list>
-    </info-section>
-    <info-section title="Professional">
-        <media-icon-list media-list="vm.profMedia"></media-icon-list>
-    </info-section>
     <div class="footer-container">
-      <icon-footer contact-icon="vm.contactIcon" social-list="vm.socialMedia" prof-list="vm.profIconList"></icon-footer>
+      <ion-scroll>
+        <icon-footer contact-icon="vm.contactIcon" social-list="vm.socialMedia" prof-list="vm.profMedia"></icon-footer>
+      </ion-scroll>
     </div>
   </ion-content>
 </ion-view>

@@ -9764,6 +9764,14 @@ a.button {
   min-height: inherit;
   line-height: 30px; }
 
+.scroll-bar-indicator {
+  display: none; }
+
+.ucode-toggle {
+  position: absolute;
+  right: 0;
+  padding: 10px 10px 0 10px; }
+
 .ucode-container {
   width: 100%;
   padding: 10px; }
@@ -9778,7 +9786,12 @@ a.button {
 .ucode-placeholder-image {
   display: block;
   width: 50%;
-  margin: 10px auto 20px auto; }
+  margin: 10px auto 15px auto; }
+
+.main-container {
+  width: 100%;
+  height: 90vh;
+  overflow-y: scroll; }
 
 .info-card-container {
   margin: 10px 0 10px 0; }
@@ -9810,7 +9823,8 @@ info-card .item {
   text-align: center;
   position: fixed;
   bottom: 0;
-  padding: 5px; }
+  padding: 5px;
+  border: 5px 0 0 0 solid rgba(255, 255, 255, 0.5); }
 
 .wrapper {
   width: 90%;
@@ -9918,7 +9932,10 @@ info-card .item {
   margin: 8px;
   background: no-repeat center center;
   background-size: cover;
-  display: inline-block; }
+  display: inline-block;
+  -webkit-filter: grayscale(0.8);
+  filter: grayscale(0.8);
+  opacity: .5; }
 
 .positive-background {
   background-color: #003374;
