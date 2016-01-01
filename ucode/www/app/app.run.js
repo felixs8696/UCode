@@ -23,14 +23,18 @@ angular
       var initialSocialMedia = [
         {shared: false, selected: true, title: 'Facebook', img: 'img/facebook.png', username: null, url: null},
         {shared: false, selected: true, title: 'Instagram', img: 'img/instagram.png', username: null, url: null},
-        {shared: false, selected: false, title: 'SnapChat', img: 'img/snapchat.jpg', username: null, url: null},
-        {shared: false, selected: false, title: 'Twitter', img: 'img/twitter.png', username: null, url: null}
+        {shared: false, selected: true, title: 'SnapChat', img: 'img/snapchat.jpg', username: null, url: null},
+        {shared: false, selected: true, title: 'Twitter', img: 'img/twitter.png', username: null, url: null}
       ];
       DataStorage.storeSocialData(initialSocialMedia);
     }
     if (!DataStorage.getProfessionalData() || Object.keys(DataStorage.getProfessionalData()).length == 0) {
       var initialProfMedia = [
-        {shared: false, selected: true, title: 'LinkedIn', img: 'img/linkedin.png', username: null, url: null}
+        {shared: false, selected: true, title: 'LinkedIn', img: 'img/linkedin.png', username: null, url: null},
+        {shared: false, selected: true, title: 'Google-Hangouts', img: 'img/google-hangouts.png', username: null, url: null},
+        {shared: false, selected: true, title: 'Skype', img: 'img/skype.png', username: null, url: null},
+        {shared: false, selected: true, title: 'GitHub', img: 'img/github.png', username: null, url: null},
+        {shared: false, selected: false, title: 'AngelList', img: 'img/angellist.jpg', username: null, url: null},
       ];
       DataStorage.storeProfessionalData(initialProfMedia);
     }

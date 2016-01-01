@@ -1,0 +1,21 @@
+<ion-modal-view class='modal'>
+  <ion-header-bar class="bar-positive">
+    <h1 class="subtitle title">Select Media</h1>
+    <button class="button button-clear" ng-click="vm.closeAddModal()">
+      Done
+    </button>
+  </ion-header-bar>
+  <ion-content>
+    <div class="text-left-50">
+      <button class="button button-clear" ng-click="vm.selectAllMedia()">Select All</button>
+    </div>
+    <div class="text-right-50">
+      <button class="button button-clear" ng-click="vm.deselectAllMedia()">Select None</button>
+    </div>
+    <div class="media-grid-container">
+      <div ng-repeat="media in vm.allProfMedia" class="media-grid-icon" ng-class="{unselected: !media.selected, selected: media.selected}" style="background-image:url('{{media.img}}')" ng-click="vm.toggleMedia(media)">
+        <!-- <div class="overlay" ng-class="{'remove-overlay': media.selected, 'add-overlay': !media.selected}"><i class="icon" ng-class="{'ion-ios-plus-empty': !media.selected, 'ion-ios-minus-empty': media.selected}"></i></div> -->
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

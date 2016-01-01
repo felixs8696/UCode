@@ -1,5 +1,14 @@
 <ion-view view-title="Professional">
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="vm.showEditModal()">
+      <i class="icon ion-compose"></i>
+    </button>
+  </ion-nav-buttons>
   <ion-content>
-    <h1>Professional</h1>
+    <div class="padding text-left">
+      <button class="add-media button button-positive button-outline" ng-click="vm.showAddModal()">Select Media to Share</button>
+    </div>
+    <handle-display ng-repeat="media in vm.allProfMedia" ng-if="media.selected" icon-img="media.img"
+    title="media.title" username="media.username" url="media.url"></handle-display>
   </ion-content>
 </ion-view>

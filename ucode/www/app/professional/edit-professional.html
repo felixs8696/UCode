@@ -3,7 +3,7 @@
     <button class="button button-clear" ng-click="vm.showResetWarning()">
       Reset Data
     </button>
-    <h1 class="subtitle title">Edit Social</h1>
+    <h1 class="subtitle title">Edit Professional</h1>
     <button class="button button-clear" ng-click="vm.closeEditModal()">
       Done
     </button>
@@ -12,7 +12,7 @@
     <div class="center-button-container padding text-center" ng-if="vm.noMediaSelected()">
       <button class="center-button button button-positive" ng-click="vm.showAddModal()">Add Media</button>
     </div>
-    <info-card ng-repeat="media in vm.allSocialMedia" ng-if="media.selected" title="{{media.title}}">
+    <info-card ng-repeat="media in vm.allProfMedia" ng-if="media.selected" title="{{media.title}}">
       <input class="card-input" ng-if="media.username != null" type="text" placeholder="{{media.username}}" ng-model="vm.newInputs[$index].username">
       <input class="card-input" ng-if="media.username == null" type="text" placeholder="Enter Username..." ng-model="vm.newInputs[$index].username">
       <input class="card-input" ng-if="media.url != null" type="text" placeholder="{{media.url}}" ng-model="vm.newInputs[$index].url">

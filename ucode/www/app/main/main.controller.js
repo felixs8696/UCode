@@ -7,12 +7,13 @@ MainController.$inject = ['MainModel', 'AddressService', 'MainModel', '$ionicScr
 function MainController(MainModel, AddressService, MainModel, $ionicScrollDelegate) {
   var vm = this;
   vm.primaryData = MainModel.primaryData;
+  vm.socialMedia = MainModel.socialMedia;
+  vm.profMedia = MainModel.profMedia;
+  
   vm.name = vm.primaryData.name.value || "UCode";
   vm.valueIsNotNull = MainModel.valueIsNotNull;
 
   vm.contactIcon = "img/contact.png";
-
-  vm.socialMedia = MainModel.socialMedia;
-  vm.profMedia = MainModel.profMedia;
   vm.socialToggle = true;
+
 }

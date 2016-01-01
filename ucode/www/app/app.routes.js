@@ -17,7 +17,8 @@ angular
           templateUrl: 'app/main/main.html',
           controller: 'MainController as vm'
         }
-      }
+      },
+      cache: false
     })
 
     .state('app.primary', {
@@ -31,17 +32,6 @@ angular
       cache: false
     })
 
-    // .state('app.edit-primary', {
-    //   url: '/primary-contact-settings/edit',
-    //   views: {
-    //     'menuContent': {
-    //       templateUrl: 'app/primary/edit-primary.html',
-    //       controller: 'PrimaryController as vm'
-    //     }
-    //   },
-    //   cache: false
-    // })
-
     .state('app.professional', {
         url: '/professional-contact-settings',
         views: {
@@ -49,7 +39,8 @@ angular
             templateUrl: 'app/professional/professional.html',
             controller: 'ProfessionalController as vm'
           }
-        }
+        },
+        cache: false
       })
 
     .state('app.social', {
@@ -59,28 +50,10 @@ angular
             templateUrl: 'app/social/social.html',
             controller: 'SocialController as vm'
           }
-        }
+        },
+        cache: false
       })
 
-    .state('app.playlist', {
-        url: '/playlist',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/playlist.html',
-            controller: 'PlaylistCtrl'
-          }
-        }
-      })
-
-    .state('app.single', {
-      url: '/playlists/:playlistId',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlist.html',
-          controller: 'PlaylistCtrl'
-        }
-      }
-    });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/main');
   });
