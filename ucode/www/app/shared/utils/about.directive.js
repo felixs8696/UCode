@@ -11,6 +11,7 @@
       scope: {
         sectionList: '='
       },
+      controller: 'MainController as vm',
       templateUrl: 'app/shared/utils/about.html'
     }
   }

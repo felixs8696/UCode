@@ -41,6 +41,27 @@
   line-height: 30px;
 }
 
+//======== Main Page =========
+.ucode-container {
+  width: 100%;
+  padding: 10px;
+}
+
+.ucode-title {
+  font-size: 3em;
+  line-height: normal;
+  margin: 10px 0;
+  color: $positive;
+  font-family: 'Makisupa', "Archivo Narrow", "Roboto", "Helvetica", sans-serif;
+}
+
+.ucode-placeholder-image {
+  display: block;
+  width: 50%;
+  // padding: 10px;
+  margin: 10px auto 20px auto;
+}
+
 //======== Information Cards ========
 .info-card-container{
   margin: 10px 0 10px 0;

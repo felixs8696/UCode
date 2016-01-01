@@ -1,9 +1,11 @@
 <ion-view view-title="{{vm.name}}">
   <ion-content>
-    <h1 class="text-center">U Code</h1>
-    {{vm.primaryData}}
+    <div class="text-center ucode-container">
+      <div class="text-center ucode-title">U Code</div>
+      <img class="ucode-placeholder-image" src="img/qrcode.png">
+    </div>
     <info-section title="Primary">
-        <about-section section-list="vm.primaryIconList"></about-section>
+        <about-section section-list="vm.primaryData"></about-section>
     </info-section>
     <info-section title="Social">
         <media-icon-list media-list="vm.socialMedia"></media-icon-list>

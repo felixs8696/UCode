@@ -9764,6 +9764,22 @@ a.button {
   min-height: inherit;
   line-height: 30px; }
 
+.ucode-container {
+  width: 100%;
+  padding: 10px; }
+
+.ucode-title {
+  font-size: 3em;
+  line-height: normal;
+  margin: 10px 0;
+  color: #003374;
+  font-family: 'Makisupa', "Archivo Narrow", "Roboto", "Helvetica", sans-serif; }
+
+.ucode-placeholder-image {
+  display: block;
+  width: 50%;
+  margin: 10px auto 20px auto; }
+
 .info-card-container {
   margin: 10px 0 10px 0; }
 
@@ -9909,7 +9925,7 @@ info-card .item {
   color: white; }
 
 .about-grid {
-  margin: 8px 9.5px 8px 9.5px;
+  margin: 3px 11px;
   display: inline-block; }
 
 .about-gray {

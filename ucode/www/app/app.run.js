@@ -4,18 +4,18 @@ angular
     Logger.setLog($log);
     if (!DataStorage.getPrimaryData() || Object.keys(DataStorage.getPrimaryData()).length == 0) {
       var initialPrimaryData = {
-        name: {value: null, shared: false},
-        emails: {value: [], shared: false},
-        phones: {value: [], shared: false},
-        school: {value: null, shared: false},
+        name: {value: null, shared: false, icon: "ion-ios-contact"},
+        emails: {value: [], shared: false, icon: "ion-ios-at"},
+        phones: {value: [], shared: false, icon: "ion-iphone"},
+        school: {value: null, shared: false, icon: "ion-bookmark"},
         address: {value: {
           street: null,
           city: null,
           state: null,
           country: null,
           zipcode: null
-        }, shared: false},
-        websites: {value: [], shared: false}
+        }, shared: false, icon: "ion-ios-home"},
+        websites: {value: [], shared: false, icon: "ion-link"}
       };
       DataStorage.storePrimaryData(initialPrimaryData);
     }
