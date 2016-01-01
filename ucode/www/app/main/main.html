@@ -2,14 +2,15 @@
   <ion-content>
     <div id="container" class="main-container">
       <div class="ucode-toggle">
-        <label class="toggle toggle-calm disable-user-behavior">
-          <input type="checkbox" ng-model="ucodeMode" class="ng-pristine ng-untouched ng-valid">
+        <label class="toggle toggle-energized disable-user-behavior">
+          <input type="checkbox" ng-model="vm.socialToggle" class="ng-pristine ng-untouched ng-valid">
           <div class="track"><div class="handle"></div></div>
         </label>
       </div>
       <div class="text-center ucode-container">
         <div class="text-center ucode-title">U Code</div>
-        <img class="ucode-placeholder-image" src="img/qrcode.png">
+        <img ng-if="vm.socialToggle" class="ucode-placeholder-image" src="img/qrcode.png">
+        <img ng-if="!vm.socialToggle" class="ucode-placeholder-image" src="img/prof-qr.png">
       </div>
       <info-section title="Primary">
           <about-section section-list="vm.primaryData"></about-section>

@@ -14,4 +14,5 @@ function MainController(MainModel, AddressService, MainModel, $ionicScrollDelega
 
   vm.socialMedia = MainModel.socialMedia;
   vm.profMedia = MainModel.profMedia;
+  vm.socialToggle = true;
 }
