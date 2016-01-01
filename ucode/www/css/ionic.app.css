@@ -9893,12 +9893,23 @@ info-card .item {
   color: #FFF;
   background: rgba(0, 0, 0, 0.2); }
 
+.media-icon {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  margin: 8px;
+  background: no-repeat center center;
+  background-size: cover;
+  display: inline-block; }
+
 .positive-background {
   background-color: #003374;
   color: white; }
 
 .about-grid {
-  padding: 3px 0 3px 20px;
+  margin: 8px 9.5px 8px 9.5px;
   display: inline-block; }
 
 .about-gray {
@@ -9914,63 +9925,6 @@ info-card .item {
   font-size: 30px;
   color: #ABABAB;
   display: inline-block; }
-
-.activity-count {
-  width: 10%;
-  display: inline-block;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  color: #C0C0C0;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center; }
-
-.activity-title {
-  width: 75%;
-  display: inline-block;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  color: #ABABAB;
-  font-size: 16px; }
-
-.activity-icon {
-  width: 10%;
-  display: inline-block;
-  color: #C0C0C0;
-  font-size: 16px;
-  text-align: center; }
-
-.user-grid-item {
-  width: 21%;
-  display: inline-block;
-  text-align: center;
-  margin: 5px 2% 5px 2%; }
-
-.user-grid-item p {
-  margin: 2px 0 0 0;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  color: #ABABAB;
-  font-size: 14px; }
-
-.user-pic {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 90%;
-  height: 0;
-  padding-top: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  background: no-repeat center center;
-  background-size: cover; }
-
-.name-title {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  text-align: center;
-  font-size: 30px; }
-
-.white-name {
-  color: white; }
 
 .info-rectangle {
   width: 100%;

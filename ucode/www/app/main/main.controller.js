@@ -2,13 +2,13 @@ angular
   .module('ucode.main')
   .controller('MainController', MainController);
 
-MainController.$inject = ['DataStorage', 'AddressService'];
+MainController.$inject = ['DataStorage', 'AddressService', 'MainModel'];
 
-function MainController(DataStorage, AddressService) {
+function MainController(DataStorage, AddressService, MainModel) {
   var vm = this;
   vm.primaryData = DataStorage.getPrimaryData();
   vm.primaryIconList = primaryIconList();
-  vm.name = vm.primaryData.name || "UCode";
+  vm.name = vm.primaryData.name.value || "UCode";
 
   function primaryIconList() {
     var iconList = [];
@@ -33,9 +33,8 @@ function MainController(DataStorage, AddressService) {
 
   vm.contactIcon = "img/contact.png";
 
-  vm.socialIconList =
-  ['img/facebook.png', 'img/Instagram.png','img/snapchat.jpg', 'img/twitter.png'];
-
+  vm.socialMedia = MainModel.socialMedia;
+  // vm.profMedia =
   vm.profIconList = ['img/linkedin.png'];
 
 }

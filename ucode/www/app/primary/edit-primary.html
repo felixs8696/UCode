@@ -10,32 +10,32 @@
   </ion-header-bar>
   <ion-content>
     <info-card title="Name">
-      <input class="card-input" ng-if="vm.primaryInfo.name != null" type="text" placeholder="{{vm.primaryInfo.name}}" ng-model="vm.newInputs.name">
-      <input class="card-input" ng-if="vm.primaryInfo.name == null" type="text" placeholder="Enter name here..." ng-model="vm.newInputs.name">
+      <input class="card-input" ng-if="vm.primaryInfo.name.value != null" type="text" placeholder="{{vm.primaryInfo.name.value}}" ng-model="vm.newInputs.name">
+      <input class="card-input" ng-if="vm.primaryInfo.name.value == null" type="text" placeholder="Enter name here..." ng-model="vm.newInputs.name">
     </info-card>
 
     <info-card title="Emails">
-      <div ng-repeat="email in vm.primaryInfo.emails">
-        <input class="card-input" type="email" ng-if="email" placeholder="{{email}}" ng-model="vm.primaryInfo.emails[$index]">
+      <div ng-repeat="email in vm.primaryInfo.emails.value">
+        <input class="card-input" type="email" ng-if="email" placeholder="{{email}}" ng-model="vm.primaryInfo.emails.value[$index]">
       </div>
       <input class="card-input" type="email" ng-keyup="$event.keyCode == 13 && vm.addNewEmail()" ng-model="vm.newInputs.email" placeholder="Enter another email here...">
     </info-card>
 
     <info-card title="Phone Numbers">
-      <div ng-repeat="number in vm.primaryInfo.phones">
-        <input class="card-input" type="tel" ng-if="number" placeholder="{{number}}" ng-model="vm.primaryInfo.phones[$index]">
+      <div ng-repeat="number in vm.primaryInfo.phones.value">
+        <input class="card-input" type="tel" ng-if="number" placeholder="{{number}}" ng-model="vm.primaryInfo.phones.value[$index]">
       </div>
       <input class="card-input" type="tel" ng-keyup="$event.keyCode == 13 && vm.addNewPhone()" ng-model="vm.newInputs.phone" placeholder="Enter another number here...">
     </info-card>
 
     <info-card title="Current School">
-      <input class="card-input" ng-if="vm.primaryInfo.school != null" type="text" placeholder="{{vm.primaryInfo.school}}" ng-model="vm.newInputs.school">
-      <input class="card-input" ng-if="vm.primaryInfo.school == null" type="text" placeholder="Enter school here..." ng-model="vm.newInputs.school">
+      <input class="card-input" ng-if="vm.primaryInfo.school.value != null" type="text" placeholder="{{vm.primaryInfo.school.value}}" ng-model="vm.newInputs.school">
+      <input class="card-input" ng-if="vm.primaryInfo.school.value == null" type="text" placeholder="Enter school here..." ng-model="vm.newInputs.school">
     </info-card>
 
     <info-card title="Address">
-      <textarea ng-if="!vm.isNullAddress(vm.primaryInfo.address)" rows=3 readonly>{{vm.formattedAddress(vm.primaryInfo.address)}}</textarea>
-      <p ng-if="!vm.isNullAddress(vm.primaryInfo.address)">Edit Address</p>
+      <textarea ng-if="!vm.isNullAddress(vm.primaryInfo.address.value)" rows=3 readonly>{{vm.formattedAddress(vm.primaryInfo.address.value)}}</textarea>
+      <p ng-if="!vm.isNullAddress(vm.primaryInfo.address.value)">Edit Address</p>
       <input class="card-input" type="text" ng-model="vm.newInputs.address.street" placeholder="Street Address...">
       <input class="card-input" type="text" ng-model="vm.newInputs.address.city" placeholder="City...">
       <input class="card-input" type="text" ng-model="vm.newInputs.address.state" placeholder="State...">
@@ -44,8 +44,8 @@
     </info-card>
 
     <info-card title="Websites">
-      <div ng-repeat="site in vm.primaryInfo.websites">
-        <input class="card-input" type="url" ng-if="site" placeholder="{{site}}" ng-model="vm.primaryInfo.site[$index]">
+      <div ng-repeat="site in vm.primaryInfo.websites.value">
+        <input class="card-input" type="url" ng-if="site" placeholder="{{site}}" ng-model="vm.primaryInfo.websites.value[$index]">
       </div>
       <input class="card-input" type="url" ng-keyup="$event.keyCode == 13 && vm.addNewWebsite()" ng-model="vm.newInputs.website" placeholder="Enter another website here...">
     </info-card>

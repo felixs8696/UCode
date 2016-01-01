@@ -221,3 +221,16 @@ info-card .item {
     color: #FFF;
     background: rgba(0, 0, 0, .2);
 }
+
+//======== Media Icon List ========
+.media-icon {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 25px;
+  height: 25px;
+  margin: 8px;
+  background: no-repeat center center;
+  background-size: cover;
+  display: inline-block;
+}

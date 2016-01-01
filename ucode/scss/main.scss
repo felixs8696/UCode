@@ -3,7 +3,8 @@
 //about section
 .about-grid {
   // width: 50%;
-  padding: 3px 0 3px 20px;
+  // padding: 3px 0 3px 20px;
+  margin: 8px 9.5px 8px 9.5px;
   display: inline-block;
 }
 
@@ -25,72 +26,72 @@
 }
 
 //count list
-.activity-count {
-  width: 10%;
-  display: inline-block;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  color: $icon-gray;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-}
+// .activity-count {
+//   width: 10%;
+//   display: inline-block;
+//   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//   color: $icon-gray;
+//   font-size: 14px;
+//   font-weight: 400;
+//   text-align: center;
+// }
 
-.activity-title {
-  width: 75%;
-  display: inline-block;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  color: $font-gray;
-  font-size: 16px;
-}
-
-.activity-icon {
-  width: 10%;
-  display: inline-block;
-  color: $icon-gray;
-  font-size: 16px;
-  text-align: center;
-}
+// .activity-title {
+//   width: 75%;
+//   display: inline-block;
+//   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//   font-weight: 200;
+//   color: $font-gray;
+//   font-size: 16px;
+// }
+//
+// .activity-icon {
+//   width: 10%;
+//   display: inline-block;
+//   color: $icon-gray;
+//   font-size: 16px;
+//   text-align: center;
+// }
 
 //friends display
-.user-grid-item {
-  width: 21%;
-  display: inline-block;
-  text-align: center;
-  margin: 5px 2% 5px 2%;
-}
+// .user-grid-item {
+//   width: 21%;
+//   display: inline-block;
+//   text-align: center;
+//   margin: 5px 2% 5px 2%;
+// }
+//
+// .user-grid-item p{
+//   margin: 2px 0 0 0;
+//   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//   font-weight: 200;
+//   color: $font-gray;
+//   font-size: 14px;
+// }
+//
+// .user-pic {
+//   border-radius: 50%;
+//   //border: 1px solid $border-gray;
+//   overflow: hidden;
+//   width: 90%;
+//   height: 0;
+//   padding-top: 90%;
+//   margin-left: auto;
+//   margin-right: auto;
+//   background: no-repeat center center;
+//   background-size: cover;
+// }
 
-.user-grid-item p{
-  margin: 2px 0 0 0;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: 200;
-  color: $font-gray;
-  font-size: 14px;
-}
-
-.user-pic {
-  border-radius: 50%;
-  //border: 1px solid $border-gray;
-  overflow: hidden;
-  width: 90%;
-  height: 0;
-  padding-top: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  background: no-repeat center center;
-  background-size: cover;
-}
-
-.name-title {
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  text-align: center;
-  font-size: 30px;
-}
-
-.white-name {
-  color: white;
-}
+// .name-title {
+//   font-family: 'Lato', sans-serif;
+//   font-weight: 300;
+//   text-align: center;
+//   font-size: 30px;
+// }
+//
+// .white-name {
+//   color: white;
+// }
 
 .info-rectangle {
   width: 100%;

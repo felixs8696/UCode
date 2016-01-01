@@ -6,39 +6,39 @@
   </ion-nav-buttons>
   <ion-content>
     <info-card title="Name" show-footer=false>
-      <p ng-if="vm.primaryInfo.name != null" type="text">{{vm.primaryInfo.name}}</p>
-      <p ng-if="vm.primaryInfo.name == null">None Yet</p>
+      <p ng-if="vm.primaryInfo.name.value != null" type="text">{{vm.primaryInfo.name.value}}</p>
+      <p ng-if="vm.primaryInfo.name.value == null">None Yet</p>
     </info-card>
 
     <info-card title="Emails" show-footer=false>
-      <div ng-repeat="email in vm.primaryInfo.emails">
+      <div ng-repeat="email in vm.primaryInfo.emails.value">
         <p ng-if="email">{{email}}</p>
       </div>
-      <p ng-if="vm.primaryInfo.emails.length == 0">None Yet</p>
+      <p ng-if="vm.primaryInfo.emails.value.length == 0">None Yet</p>
     </info-card>
 
     <info-card title="Phone Numbers" show-footer=false>
-      <div ng-repeat="number in vm.primaryInfo.phones">
+      <div ng-repeat="number in vm.primaryInfo.phones.value">
         <p ng-if="number">{{number}}</p>
       </div>
-      <p ng-if="vm.primaryInfo.phones.length == 0">None Yet</p>
+      <p ng-if="vm.primaryInfo.phones.value.length == 0">None Yet</p>
     </info-card>
 
     <info-card title="Current School" show-footer=false>
-      <p ng-if="vm.primaryInfo.school != null">{{vm.primaryInfo.school}}</p>
-      <p ng-if="vm.primaryInfo.school == null">None Yet</p>
+      <p ng-if="vm.primaryInfo.school.value != null">{{vm.primaryInfo.school.value}}</p>
+      <p ng-if="vm.primaryInfo.school.value == null">None Yet</p>
     </info-card>
 
     <info-card title="Address" show-footer=false>
-      <textarea ng-if="!vm.isNullAddress(vm.primaryInfo.address)" rows=3 readonly>{{vm.formattedAddress(vm.primaryInfo.address)}}</textarea>
-      <p ng-if="vm.isNullAddress(vm.primaryInfo.address)">None Yet</p>
+      <textarea ng-if="!vm.isNullAddress(vm.primaryInfo.address.value)" rows=3 readonly>{{vm.formattedAddress(vm.primaryInfo.address.value)}}</textarea>
+      <p ng-if="vm.isNullAddress(vm.primaryInfo.address.value)">None Yet</p>
     </info-card>
 
     <info-card title="Websites" show-footer=false>
-      <div ng-repeat="site in vm.primaryInfo.websites">
+      <div ng-repeat="site in vm.primaryInfo.websites.value">
         <p ng-if="site">{{site}}</p>
       </div>
-      <p ng-if="vm.primaryInfo.websites.length == 0">None Yet</p>
+      <p ng-if="vm.primaryInfo.websites.value.length == 0">None Yet</p>
     </info-card>
   </ion-content>
 </ion-view>
