@@ -1,26 +1,15 @@
 <ion-view view-title="{{vm.name}}">
-  <ion-nav-buttons side="secondary">
-    <button class="button" ng-click="vm.printAllData()">
-      Print
-    </button>
-  </ion-nav-buttons>
   <ion-content>
-    <div id="container" class="main-container">
+    <div class="main-container">
       <div class="primary-toggle-selected" ng-if="vm.primaryToggle" ng-click="vm.togglePrimary()"></div>
       <div class="primary-toggle-deselected" ng-if="!vm.primaryToggle" ng-click="vm.togglePrimary()"></div>
       <div class="social-toggle-selected" ng-if="vm.socialToggle" ng-click="vm.toggleSocial()"></div>
       <div class="social-toggle-deselected" ng-if="!vm.socialToggle" ng-click="vm.toggleSocial()"></div>
       <div class="prof-toggle-selected" ng-if="vm.profToggle" ng-click="vm.toggleProf()"></div>
       <div class="prof-toggle-deselected" ng-if="!vm.profToggle" ng-click="vm.toggleProf()"></div>
-      <!-- <div class="ucode-toggle">
-        <label class="toggle toggle-energized disable-user-behavior">
-          <input type="checkbox" ng-model="vm.socialToggle" class="ng-pristine ng-untouched ng-valid">
-          <div class="track"><div class="handle"></div></div>
-        </label>
-      </div> -->
       <div class="text-center ucode-container">
         <div class="text-center ucode-title">U Code</div>
-        <div ng-switch="vm.qrType()">
+        <div ng-switch="vm.qrType()" ng-click="vm.printAllData()">
           <img ng-switch-when="social" class="ucode-placeholder-image" src="img/social-qr.png">
           <img ng-switch-when="professional" class="ucode-placeholder-image" src="img/prof-qr.png">
           <img ng-switch-when="general" class="ucode-placeholder-image" src="img/gen-qr.png">
@@ -43,10 +32,14 @@
         </div>
       </info-section>
     </div>
-    <div class="footer-container">
+    <div class="lens-container">
+      <div class="lens" style="background-image:url('img/color-lens.png')">
+      </div>
+    </div>
+    <!-- <div class="footer-container">
       <ion-scroll>
         <icon-footer contact-icon="vm.contactIcon" social-list="vm.socialMedia" prof-list="vm.profMedia"></icon-footer>
       </ion-scroll>
-    </div>
+    </div> -->
   </ion-content>
 </ion-view>

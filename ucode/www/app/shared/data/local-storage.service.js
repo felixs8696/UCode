@@ -18,7 +18,11 @@
       storeSocialData: storeSocialData,
       getSocialData: getSocialData,
       removeSocialData: removeSocialData,
-      resetSocialData: resetSocialData
+      resetSocialData: resetSocialData,
+      storeShareObj: storeShareObj,
+      getShareObj: getShareObj,
+      removeShareObj: removeShareObj,
+      resetShareObj: resetShareObj
     };
 
     function storePrimaryData(primaryDataObject) {
@@ -100,6 +104,29 @@
         {shared: false, selected: true, title: 'Twitter', img: 'img/twitter.png', username: null, url: null}
       ];
       storeSocialData(initialSocialMedia);
+    }
+
+    function storeShareObj(shareObj) {
+      localStorage.setItem('ShareObj', JSON.stringify(shareObj));
+    }
+
+    function getShareObj() {
+      var shareObj = JSON.parse(localStorage.getItem('ShareObj'));
+      return shareObj;
+    }
+
+    function removeShareObj() {
+      localStorage.removeItem('ShareObj');
+    }
+
+    function resetShareObj() {
+      removeShareObj();
+      var initialShareObj = {
+        primary: {},
+        social: [],
+        professional: []
+      };
+      storeShareObj(initialShareObj);
     }
 
     return factory;

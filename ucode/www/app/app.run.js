@@ -38,6 +38,14 @@ angular
       ];
       DataStorage.storeProfessionalData(initialProfMedia);
     }
+    if (!DataStorage.getShareObj() || Object.keys(DataStorage.getShareObj()).length == 0) {
+      var initialShareObj = {
+        primary: {},
+        social: [],
+        professional: []
+      };
+      DataStorage.storeShareObj(initialShareObj);
+    }
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)

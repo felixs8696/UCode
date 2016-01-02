@@ -11,7 +11,8 @@ function MainShareModel(MainModel, DataStorage) {
     socialMedia: MainModel.socialMedia,
     togglePrimaryShare: togglePrimaryShare,
     toggleProfShare: toggleProfShare,
-    toggleSocialShare: toggleSocialShare
+    toggleSocialShare: toggleSocialShare,
+    createShareObject: createShareObject
   }
 
   function togglePrimaryShare(key) {
@@ -27,6 +28,18 @@ function MainShareModel(MainModel, DataStorage) {
   function toggleSocialShare(index) {
     factory.socialMedia[index].shared = !factory.socialMedia[index].shared;
     DataStorage.storeSocialData(factory.socialMedia);
+  }
+
+  function createShareObject(primaryToggle, socialToggle, profToggle) {
+    var shareObj = [];
+    if (primaryToggle)
+      shareObj['primary'] = DataStorage.getPrimaryData();
+    if (socialToggle)
+      shareObj['social'] = DataStorage.getSocialData();
+    if (profToggle)
+      shareObj['professional'] = DataStorage.getProfessionalData();
+    DataStorage.storeShareObj(shareObj);
+    return shareObj;
   }
 
   return factory;

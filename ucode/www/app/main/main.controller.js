@@ -28,9 +28,7 @@ function MainController(MainModel, AddressService, MainModel, MainShareModel) {
   vm.printAllData = printAllData;
 
   function printAllData() {
-    console.log(vm.primaryData);
-    console.log(vm.socialMedia);
-    console.log(vm.profMedia);
+    console.log(MainShareModel.createShareObject(vm.primaryToggle, vm.socialToggle, vm.profToggle));
   }
 
   function togglePrimary() {
