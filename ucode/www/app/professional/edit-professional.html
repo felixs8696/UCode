@@ -12,11 +12,11 @@
     <div class="center-button-container padding text-center" ng-if="vm.noMediaSelected()">
       <button class="center-button button button-positive" ng-click="vm.showAddModal()">Add Media</button>
     </div>
-    <info-card ng-repeat="media in vm.allProfMedia" ng-if="media.selected" title="{{media.title}}">
-      <input class="card-input" ng-if="media.username != null" type="text" placeholder="{{media.username}}" ng-model="vm.newInputs[$index].username">
-      <input class="card-input" ng-if="media.username == null" type="text" placeholder="Enter Username..." ng-model="vm.newInputs[$index].username">
-      <input class="card-input" ng-if="media.url != null" type="text" placeholder="{{media.url}}" ng-model="vm.newInputs[$index].url">
-      <input class="card-input" ng-if="media.url == null" type="text" placeholder="Enter Profile URL.." ng-model="vm.newInputs[$index].url">
+    <info-card ng-repeat="(profKey, profVal) in vm.profMedia" ng-if="profVal.data.selected" title="{{profVal.sharePkg.title}}">
+      <input class="card-input" ng-if="profVal.sharePkg.username != null" type="text" placeholder="{{profVal.sharePkg.username}}" ng-model="vm.newInputs[profKey].sharePkg.username">
+      <input class="card-input" ng-if="profVal.sharePkg.username == null" type="text" placeholder="Enter Username..." ng-model="vm.newInputs[profKey].sharePkg.username">
+      <input class="card-input" ng-if="profVal.sharePkg.url != null" type="text" placeholder="{{profVal.sharePkg.url}}" ng-model="vm.newInputs[profKey].sharePkg.url">
+      <input class="card-input" ng-if="profVal.sharePkg.url == null" type="text" placeholder="Enter Profile URL.." ng-model="vm.newInputs[profKey].sharePkg.url">
     </info-card>
   </ion-content>
 </ion-modal-view>

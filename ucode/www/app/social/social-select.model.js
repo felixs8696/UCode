@@ -16,37 +16,44 @@ function SocialSelectModel(DataStorage, $ionicHistory, $state) {
   }
 
   function noMediaSelected() {
-    for (var i = 0; i < factory.socialMediaData.length; i++) {
-      if (factory.socialMediaData[i].selected == true) return false;
+    for (var key in factory.socialMediaData) {
+      if (factory.socialMediaData.hasOwnProperty(key)) {
+        if (factory.socialMediaData[key].data.selected == true) return false;
+      }
     }
     return true;
   }
 
-  function selectAllMedia() {
-    for (var i = 0; i < factory.socialMediaData.length; i++) {
-      factory.socialMediaData[i].selected = true;
+  function setMediaSelectedValue(bool) {
+    for (var key in factory.socialMediaData) {
+      if (factory.socialMediaData.hasOwnProperty(key)) {
+        factory.socialMediaData[key].data.selected = bool;
+      }
     }
     DataStorage.storeSocialData(factory.socialMediaData);
+  }
+
+  function selectAllMedia() {
+    setMediaSelectedValue(true);
   }
 
   function deselectAllMedia() {
-    for (var i = 0; i < factory.socialMediaData.length; i++) {
-      factory.socialMediaData[i].selected = false;
-    }
-    DataStorage.storeSocialData(factory.socialMediaData);
+    setMediaSelectedValue(false);
   }
 
   function updateAll(newInputs) {
-    for (var i = 0; i < factory.socialMediaData.length; i++) {
-      if (newInputs[i]) {
-        if (newInputs[i].username) {
-            factory.socialMediaData[i].username = newInputs[i].username;
-        }
-        if (newInputs[i].url) {
-            factory.socialMediaData[i].url = newInputs[i].url;
+    for (var key in factory.socialMediaData) {
+      if (factory.socialMediaData.hasOwnProperty(key)) {
+        if (newInputs[key]) {
+          if (newInputs[key].sharePkg.username) {
+              factory.socialMediaData[key].sharePkg.username = newInputs[key].sharePkg.username;
+          }
+          if (newInputs[key].sharePkg.url) {
+              factory.socialMediaData[key].sharePkg.url = newInputs[key].sharePkg.url;
+          }
         }
       }
-    };
+    }
     DataStorage.storeSocialData(factory.socialMediaData);
   }
 

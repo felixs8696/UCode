@@ -8,7 +8,7 @@
     <div class="padding text-left">
       <button class="add-media button button-positive button-outline" ng-click="vm.showAddModal()">Select Media to Share</button>
     </div>
-    <handle-display ng-repeat="media in vm.allSocialMedia" ng-if="media.selected" icon-img="media.img"
-    title="media.title" username="media.username" url="media.url"></handle-display>
+    <handle-display ng-repeat="(socKey, socVal) in vm.socialMedia" ng-if="socVal.data.selected" icon-img="socVal.data.img"
+    title="socVal.sharePkg.title" username="socVal.sharePkg.username" url="socVal.sharePkg.url"></handle-display>
   </ion-content>
 </ion-view>

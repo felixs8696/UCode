@@ -7,8 +7,8 @@ SocialController.$inject = ['$scope', 'Modal', 'SocialSelectModel', 'Popup', '$i
 function SocialController($scope, Modal, SocialSelectModel, Popup, $ionicHistory, $state) {
   var vm = this;
 
-  vm.allSocialMedia = SocialSelectModel.socialMediaData;
-  vm.newInputs = [];
+  vm.socialMedia = SocialSelectModel.socialMediaData;
+  vm.newInputs = {};
 
   vm.editModal = Modal.getModal('app/social/edit-social.html', $scope);
   vm.addModal = Modal.getModal('app/social/social-select.html', $scope);
@@ -53,12 +53,12 @@ function SocialController($scope, Modal, SocialSelectModel, Popup, $ionicHistory
 
   function updateAll() {
     SocialSelectModel.updateAll(vm.newInputs);
-    vm.newInputs = [];
+    vm.newInputs = {};
   }
 
-  function toggleMedia(media) {
-    media.selected = !media.selected;
-    SocialSelectModel.storeSocialData(vm.allSocialMedia);
+  function toggleMedia(key) {
+    vm.socialMedia[key].data.selected = !vm.socialMedia[key].data.selected;
+    SocialSelectModel.storeSocialData(vm.socialMedia);
   }
 
   function showResetWarning() {

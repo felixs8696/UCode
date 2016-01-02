@@ -13,9 +13,7 @@
       <button class="button button-clear" ng-click="vm.deselectAllMedia()">Select None</button>
     </div>
     <div class="media-grid-container">
-      <div ng-repeat="media in vm.allProfMedia" class="media-grid-icon" ng-class="{unselected: !media.selected, selected: media.selected}" style="background-image:url('{{media.img}}')" ng-click="vm.toggleMedia(media)">
-        <!-- <div class="overlay" ng-class="{'remove-overlay': media.selected, 'add-overlay': !media.selected}"><i class="icon" ng-class="{'ion-ios-plus-empty': !media.selected, 'ion-ios-minus-empty': media.selected}"></i></div> -->
-      </div>
+      <div ng-repeat="(profKey, profVal) in vm.profMedia" class="media-grid-icon" ng-class="{unselected: !profVal.data.selected, selected: profVal.data.selected}" style="background-image:url('{{profVal.data.img}}')" ng-click="vm.toggleMedia(profKey)"></div>
     </div>
   </ion-content>
 </ion-modal-view>

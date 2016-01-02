@@ -233,24 +233,24 @@ info-card .item {
 
 //======== Icon Footer ========
 
-.footer-container {
-  width: 100%;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  padding: 5px;
-  border: 5px 0 0 0 solid rgba(255, 255, 255, .5);
-}
-
-.wrapper {
-	width: 90%;
-	white-space: nowrap;
-	overflow-y: hidden;
-	overflow-x: scroll;
-	-webkit-overflow-scrolling: touch;
-  display: inline-block;
-}
-
+// .footer-container {
+//   width: 100%;
+//   text-align: center;
+//   position: fixed;
+//   bottom: 0;
+//   padding: 5px;
+//   border: 5px 0 0 0 solid rgba(255, 255, 255, .5);
+// }
+//
+// .wrapper {
+// 	width: 90%;
+// 	white-space: nowrap;
+// 	overflow-y: hidden;
+// 	overflow-x: scroll;
+// 	-webkit-overflow-scrolling: touch;
+//   display: inline-block;
+// }
+//
 .circle-icon-container {
   border-radius: 50%;
   overflow: hidden;

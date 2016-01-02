@@ -16,37 +16,44 @@ function ProfSelectModel(DataStorage, $ionicHistory, $state) {
   }
 
   function noMediaSelected() {
-    for (var i = 0; i < factory.profMediaData.length; i++) {
-      if (factory.profMediaData[i].selected == true) return false;
+    for (var key in factory.profMediaData) {
+      if (factory.profMediaData.hasOwnProperty(key)) {
+        if (factory.profMediaData[key].data.selected == true) return false;
+      }
     }
     return true;
   }
 
-  function selectAllMedia() {
-    for (var i = 0; i < factory.profMediaData.length; i++) {
-      factory.profMediaData[i].selected = true;
+  function setMediaSelectedValue(bool) {
+    for (var key in factory.profMediaData) {
+      if (factory.profMediaData.hasOwnProperty(key)) {
+        factory.profMediaData[key].data.selected = bool;
+      }
     }
     DataStorage.storeProfessionalData(factory.profMediaData);
+  }
+
+  function selectAllMedia() {
+    setMediaSelectedValue(true);
   }
 
   function deselectAllMedia() {
-    for (var i = 0; i < factory.profMediaData.length; i++) {
-      factory.profMediaData[i].selected = false;
-    }
-    DataStorage.storeProfessionalData(factory.profMediaData);
+    setMediaSelectedValue(false);
   }
 
   function updateAll(newInputs) {
-    for (var i = 0; i < factory.profMediaData.length; i++) {
-      if (newInputs[i]) {
-        if (newInputs[i].username) {
-            factory.profMediaData[i].username = newInputs[i].username;
-        }
-        if (newInputs[i].url) {
-            factory.profMediaData[i].url = newInputs[i].url;
+    for (var key in factory.profMediaData) {
+      if (factory.profMediaData.hasOwnProperty(key)) {
+        if (newInputs[key]) {
+          if (newInputs[key].sharePkg.username) {
+              factory.profMediaData[key].sharePkg.username = newInputs[key].sharePkg.username;
+          }
+          if (newInputs[key].sharePkg.url) {
+              factory.profMediaData[key].sharePkg.url = newInputs[key].sharePkg.url;
+          }
         }
       }
-    };
+    }
     DataStorage.storeProfessionalData(factory.profMediaData);
   }
 

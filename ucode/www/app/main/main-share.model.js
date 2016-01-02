@@ -20,13 +20,13 @@ function MainShareModel(MainModel, DataStorage) {
     DataStorage.storePrimaryData(factory.primaryData);
   }
 
-  function toggleProfShare(index) {
-    factory.profMedia[index].shared = !factory.profMedia[index].shared;
+  function toggleProfShare(key) {
+    factory.profMedia[key].data.shared = !factory.profMedia[key].data.shared;
     DataStorage.storeProfessionalData(factory.profMedia);
   }
 
-  function toggleSocialShare(index) {
-    factory.socialMedia[index].shared = !factory.socialMedia[index].shared;
+  function toggleSocialShare(key) {
+    factory.socialMedia[key].data.shared = !factory.socialMedia[key].data.shared;
     DataStorage.storeSocialData(factory.socialMedia);
   }
 

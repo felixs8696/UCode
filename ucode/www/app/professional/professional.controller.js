@@ -7,8 +7,8 @@ ProfessionalController.$inject = ['$scope', 'Modal', 'ProfSelectModel', 'Popup',
 function ProfessionalController($scope, Modal, ProfSelectModel, Popup, $ionicHistory, $state) {
   var vm = this;
 
-  vm.allProfMedia = ProfSelectModel.profMediaData;
-  vm.newInputs = [];
+  vm.profMedia = ProfSelectModel.profMediaData;
+  vm.newInputs = {};
 
   vm.editModal = Modal.getModal('app/professional/edit-professional.html', $scope);
   vm.addModal = Modal.getModal('app/professional/professional-select.html', $scope);
@@ -53,12 +53,12 @@ function ProfessionalController($scope, Modal, ProfSelectModel, Popup, $ionicHis
 
   function updateAll() {
     ProfSelectModel.updateAll(vm.newInputs);
-    vm.newInputs = [];
+    vm.newInputs = {};
   }
 
-  function toggleMedia(media) {
-    media.selected = !media.selected;
-    ProfSelectModel.storeProfessionalData(vm.allProfMedia);
+  function toggleMedia(key) {
+    vm.profMedia[key].data.selected = !vm.profMedia[key].data.selected;
+    ProfSelectModel.storeProfessionalData(vm.profMedia);
   }
 
   function showResetWarning() {
