@@ -17,18 +17,25 @@ function SharedMediaService(DataStorage) {
     shareOnlyProfessional();
   }
 
-  function shareOnlyPrimaryData() {
-    
+  function shareOnlyPrimaryData(setVal) {
+    var val = setVal || true;
+    for (var key in factory.primaryData) {
+        if (factory.primaryData.hasOwnProperty(key)) {
+           user[key].shared = val;
+        }
+    }
   }
 
-  function shareOnlySocialMedia() {
+  function shareOnlySocialMedia(setVal) {
+    var val = setVal || true;
     for (var i = 0; i < factory.socialMediaData.length; i++) {
-      factory.socialMediaData[i].shared = true;
+      factory.socialMediaData[i].shared = val;
     }
     DataStorage.storeSocialData(factory.socialMediaData);
   }
 
-  function shareOnlyProfessional() {
+  function shareOnlyProfessional(setVal) {
+    var val = setVal || true;
     for (var i = 0; i < factory.profMediaData.length; i++) {
       factory.profMediaData[i].shared = true;
     }
@@ -36,10 +43,9 @@ function SharedMediaService(DataStorage) {
   }
 
   function unShareAllMedia() {
-    for (var i = 0; i < factory.socialMediaData.length; i++) {
-      factory.socialMediaData[i].selected = false;
-    }
-    DataStorage.storeSocialData(factory.socialMediaData);
+    shareOnlyPrimaryData(false);
+    shareOnlySocialMedia(false);
+    shareOnlyProfessional(false);
   }
 
   // function updateAll(newInputs) {

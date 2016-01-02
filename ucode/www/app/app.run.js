@@ -4,18 +4,18 @@ angular
     Logger.setLog($log);
     if (!DataStorage.getPrimaryData() || Object.keys(DataStorage.getPrimaryData()).length == 0) {
       var initialPrimaryData = {
-        name: {value: null, shared: false, icon: "ion-ios-contact"},
-        emails: {value: [], shared: false, icon: "ion-ios-at"},
-        phones: {value: [], shared: false, icon: "ion-iphone"},
-        school: {value: null, shared: false, icon: "ion-bookmark"},
+        name: {value: 'Felix Su', shared: false, shareIcon: "ion-ios-person", unshareIcon: "ion-ios-person-outline"},
+        emails: {value: ['felixs8696@gmail.com'], shared: false, shareIcon: "ion-ios-email", unshareIcon: "ion-ios-email-outline"},
+        phones: {value: ['732 673 4738'], shared: false, shareIcon: "ion-ios-telephone", unshareIcon: "ion-ios-telephone-outline"},
+        school: {value: 'UC Berkeley', shared: false, shareIcon: "ion-ios-book", unshareIcon: "ion-ios-book-outline"},
         address: {value: {
-          street: null,
-          city: null,
-          state: null,
-          country: null,
-          zipcode: null
-        }, shared: false, icon: "ion-ios-home"},
-        websites: {value: [], shared: false, icon: "ion-link"}
+          street: '2520 Hillegass Ave. Apt 110',
+          city: 'Berkeley',
+          state: 'CA',
+          country: 'United States',
+          zipcode: '94704'
+        }, shared: false, shareIcon: "ion-ios-home", unshareIcon: "ion-ios-home-outline"},
+        websites: {value: ['http://felixsu.com'], shared: false, shareIcon: "ion-ios-world", unshareIcon: "ion-ios-world-outline"}
       };
       DataStorage.storePrimaryData(initialPrimaryData);
     }
@@ -34,7 +34,7 @@ angular
         {shared: false, selected: true, title: 'Google-Hangouts', img: 'img/google-hangouts.png', username: null, url: null},
         {shared: false, selected: true, title: 'Skype', img: 'img/skype.png', username: null, url: null},
         {shared: false, selected: true, title: 'GitHub', img: 'img/github.png', username: null, url: null},
-        {shared: false, selected: false, title: 'AngelList', img: 'img/angellist.jpg', username: null, url: null},
+        {shared: false, selected: false, title: 'AngelList', img: 'img/angellist.png', username: null, url: null},
       ];
       DataStorage.storeProfessionalData(initialProfMedia);
     }

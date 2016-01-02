@@ -9,8 +9,11 @@
     return {
       restrict: 'AE',
       scope: {
-        mediaList: '='
+        mediaList: '=',
+        socialList: '=',
+        profList: '='
       },
+      controller: 'MainController as vm',
       templateUrl: 'app/shared/utils/media-icon-list.html'
     }
   }

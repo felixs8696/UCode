@@ -1,25 +1,46 @@
 <ion-view view-title="{{vm.name}}">
+  <ion-nav-buttons side="secondary">
+    <button class="button" ng-click="vm.printAllData()">
+      Print
+    </button>
+  </ion-nav-buttons>
   <ion-content>
     <div id="container" class="main-container">
-      <div class="ucode-toggle">
+      <div class="primary-toggle-selected" ng-if="vm.primaryToggle" ng-click="vm.togglePrimary()"></div>
+      <div class="primary-toggle-deselected" ng-if="!vm.primaryToggle" ng-click="vm.togglePrimary()"></div>
+      <div class="social-toggle-selected" ng-if="vm.socialToggle" ng-click="vm.toggleSocial()"></div>
+      <div class="social-toggle-deselected" ng-if="!vm.socialToggle" ng-click="vm.toggleSocial()"></div>
+      <div class="prof-toggle-selected" ng-if="vm.profToggle" ng-click="vm.toggleProf()"></div>
+      <div class="prof-toggle-deselected" ng-if="!vm.profToggle" ng-click="vm.toggleProf()"></div>
+      <!-- <div class="ucode-toggle">
         <label class="toggle toggle-energized disable-user-behavior">
           <input type="checkbox" ng-model="vm.socialToggle" class="ng-pristine ng-untouched ng-valid">
           <div class="track"><div class="handle"></div></div>
         </label>
-      </div>
+      </div> -->
       <div class="text-center ucode-container">
         <div class="text-center ucode-title">U Code</div>
-        <img ng-if="vm.socialToggle" class="ucode-placeholder-image" src="img/qrcode.png">
-        <img ng-if="!vm.socialToggle" class="ucode-placeholder-image" src="img/prof-qr.png">
+        <div ng-switch="vm.qrType()">
+          <img ng-switch-when="social" class="ucode-placeholder-image" src="img/social-qr.png">
+          <img ng-switch-when="professional" class="ucode-placeholder-image" src="img/prof-qr.png">
+          <img ng-switch-when="general" class="ucode-placeholder-image" src="img/gen-qr.png">
+          <div ng-switch-default class="ucode-placeholder-image qr-placeholder-icon"><i class="icon ion-ios-barcode-outline"></i></div>
+        </div>
       </div>
       <info-section title="Primary">
-          <about-section section-list="vm.primaryData"></about-section>
-      </info-section>
-      <info-section title="Social">
-          <media-icon-list media-list="vm.socialMedia"></media-icon-list>
+        <div class="padding">
+          <about-section section-list="vm.primaryData" ng-if="vm.primaryToggle"></about-section>
+        </div>
       </info-section>
       <info-section title="Professional">
-          <media-icon-list media-list="vm.profMedia"></media-icon-list>
+        <div class="padding">
+          <media-icon-list prof-list="vm.profMedia" ng-if="vm.profToggle"></media-icon-list>
+        </div>
+      </info-section>
+      <info-section title="Social">
+        <div class="padding">
+          <media-icon-list social-list="vm.socialMedia" ng-if="vm.socialToggle"></media-icon-list>
+        </div>
       </info-section>
     </div>
     <div class="footer-container">

@@ -1,3 +1,2 @@
-<div class="padding">
-    <div class="media-icon" ng-repeat="media in mediaList" ng-if="media.selected" style="background-image:url('{{media.img}}')"></div>
-</div>
+<div ng-repeat="prof in profList" ng-if="prof.selected && profList" style="background-image:url('{{prof.img}}')" ng-click="vm.toggleProfShare($index)" ng-class="{'media-icon': !prof.shared,'media-icon-shared': prof.shared}"></div>
+<div ng-repeat="social in socialList" ng-if="social.selected && socialList" style="background-image:url('{{social.img}}')" ng-click="vm.toggleSocialShare($index)" ng-class="{'media-icon': !social.shared,'media-icon-shared': social.shared}"></div>

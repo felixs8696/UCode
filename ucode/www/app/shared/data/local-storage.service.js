@@ -73,7 +73,7 @@
         {shared: false, selected: true, title: 'Google-Hangouts', img: 'img/google-hangouts.png', username: null, url: null},
         {shared: false, selected: true, title: 'Skype', img: 'img/skype.png', username: null, url: null},
         {shared: false, selected: true, title: 'GitHub', img: 'img/github.png', username: null, url: null},
-        {shared: false, selected: false, title: 'AngelList', img: 'img/angellist.jpg', username: null, url: null},
+        {shared: false, selected: false, title: 'AngelList', img: 'img/angellist.png', username: null, url: null},
       ];
       storeProfessionalData(initialProfMedia);
     }
