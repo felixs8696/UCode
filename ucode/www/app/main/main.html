@@ -19,16 +19,19 @@
       <info-section title="Primary">
         <div class="padding">
           <about-section section-list="vm.primaryData" ng-if="vm.primaryToggle"></about-section>
+          <div ng-if="!vm.primaryToggle">Not Sharing</div>
         </div>
       </info-section>
       <info-section title="Professional">
         <div class="padding">
           <media-icon-list prof-list="vm.profMedia" ng-if="vm.profToggle"></media-icon-list>
+          <div ng-if="!vm.profToggle">Not Sharing</div>
         </div>
       </info-section>
       <info-section title="Social">
         <div class="padding">
           <media-icon-list social-list="vm.socialMedia" ng-if="vm.socialToggle"></media-icon-list>
+          <div ng-if="!vm.socialToggle">Not Sharing</div>
         </div>
       </info-section>
     </div>

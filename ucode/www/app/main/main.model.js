@@ -22,6 +22,10 @@ function MainModel(DataStorage, AddressService) {
     if (key == 'address' && !AddressService.isNullAddress(val)) {
       return true;
     }
+    if (key == 'sharePkg' && (val.username || val.url)) {
+      // console.log(val.username || val.url);
+      return true;
+    }
     return false;
   }
 

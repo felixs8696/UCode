@@ -1,4 +1,4 @@
-<div class="about-grid" ng-repeat="(key, val) in sectionList" ng-if="vm.valueIsNotNull(key, val.value)" ng-click="vm.togglePrimaryShare(key)">
-  <i class="about-selected icon {{val.shareIcon}}" ng-if="val.shared"></i>
-  <i class="about-unselected icon {{val.unshareIcon}}" ng-if="!val.shared"></i>
+<div class="about-grid" ng-repeat="(key, val) in sectionList" ng-click="vm.togglePrimaryShare(key)">
+  <i class="about-selected icon {{val.shareIcon}}" ng-if="val.shared && vm.valueIsNotNull(key, val.value)"></i>
+  <i class="about-unselected icon {{val.unshareIcon}}" ng-if="!val.shared || !vm.valueIsNotNull(key, val.value)"></i>
 </div>

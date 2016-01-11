@@ -18,11 +18,7 @@
       storeSocialData: storeSocialData,
       getSocialData: getSocialData,
       removeSocialData: removeSocialData,
-      resetSocialData: resetSocialData,
-      storeShareObj: storeShareObj,
-      getShareObj: getShareObj,
-      removeShareObj: removeShareObj,
-      resetShareObj: resetShareObj
+      resetSocialData: resetSocialData
     };
 
     function storePrimaryData(primaryDataObject) {
@@ -41,18 +37,18 @@
     function resetPrimaryData() {
       removePrimaryData();
       var initialPrimaryData = {
-        name: null,
-        emails: [],
-        phones: [],
-        school: null,
-        address: {
+        name: {value: null, shared: true, shareIcon: "ion-ios-person", unshareIcon: "ion-ios-person-outline"},
+        emails: {value: [], shared: true, shareIcon: "ion-ios-email", unshareIcon: "ion-ios-email-outline"},
+        phones: {value: [], shared: true, shareIcon: "ion-ios-telephone", unshareIcon: "ion-ios-telephone-outline"},
+        school: {value: null, shared: true, shareIcon: "ion-ios-book", unshareIcon: "ion-ios-book-outline"},
+        address: {value: {
           street: null,
           city: null,
           state: null,
           country: null,
           zipcode: null
-        },
-        websites: []
+        }, shared: false, shareIcon: "ion-ios-home", unshareIcon: "ion-ios-home-outline"},
+        websites: {value: [], shared: true, shareIcon: "ion-ios-world", unshareIcon: "ion-ios-world-outline"}
       };
       storePrimaryData(initialPrimaryData);
     }
@@ -104,29 +100,6 @@
         twitter: {data: {shared: false, selected: true, img: 'img/twitter.png'}, sharePkg: {title: 'Twitter', username: null, url: null}}
       };
       storeSocialData(initialSocialMedia);
-    }
-
-    function storeShareObj(shareObj) {
-      localStorage.setItem('ShareObj', JSON.stringify(shareObj));
-    }
-
-    function getShareObj() {
-      var shareObj = JSON.parse(localStorage.getItem('ShareObj'));
-      return shareObj;
-    }
-
-    function removeShareObj() {
-      localStorage.removeItem('ShareObj');
-    }
-
-    function resetShareObj() {
-      removeShareObj();
-      var initialShareObj = {
-        primary: {},
-        social: [],
-        professional: []
-      };
-      storeShareObj(initialShareObj);
     }
 
     return factory;

@@ -7,11 +7,12 @@ PrimaryController.$inject = ['$scope', '$state', 'PrimaryModel', '$ionicHistory'
 function PrimaryController($scope, $state, PrimaryModel, $ionicHistory, $window, AddressService, Modal, Popup) {
   var vm = this;
 
+  vm.primaryInfo = PrimaryModel.primaryInfo;
   var initialState = {
-    name: null,
+    name: vm.primaryInfo.name.value,
     email: null,
     phone: null,
-    school: null,
+    school: vm.primaryInfo.school.value,
     address: {
       street: null,
       city: null,
@@ -21,8 +22,6 @@ function PrimaryController($scope, $state, PrimaryModel, $ionicHistory, $window,
     },
     website: null
   };
-
-  vm.primaryInfo = PrimaryModel.primaryInfo;
   vm.newInputs = initialState;
 
   vm.isNullAddress = AddressService.isNullAddress;
@@ -32,7 +31,7 @@ function PrimaryController($scope, $state, PrimaryModel, $ionicHistory, $window,
   vm.addNewPhone = addNewPhone;
   vm.addNewWebsite = addNewWebsite;
   vm.updateAllPrimary = PrimaryModel.updateAllPrimary;
-  vm.showResetWarning = PrimaryModel.showResetWarning;
+  vm.showResetWarning = showResetWarning;
   vm.showEditModal = showEditModal;
   vm.closeEditModal = closeEditModal;
 
@@ -54,21 +53,21 @@ function PrimaryController($scope, $state, PrimaryModel, $ionicHistory, $window,
   }
 
   function addNewEmail() {
-    if (vm.newInputs) {
+    if (vm.newInputs && vm.newInputs.email.length > 0) {
       PrimaryModel.addNewEmail(vm.newInputs.email);
       vm.newInputs.email = null;
     }
   }
 
   function addNewPhone() {
-    if (vm.newInputs) {
+    if (vm.newInputs && vm.newInputs.phone.length > 0) {
       PrimaryModel.addNewPhone(vm.newInputs.phone);
       vm.newInputs.phone = null;
     }
   }
 
   function addNewWebsite() {
-    if (vm.newInputs) {
+    if (vm.newInputs && vm.newInputs.website.length > 0) {
       PrimaryModel.addNewWebsite(vm.newInputs.website);
       vm.newInputs.website = null;
     }

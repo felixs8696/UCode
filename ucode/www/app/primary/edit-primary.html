@@ -10,7 +10,7 @@
   </ion-header-bar>
   <ion-content>
     <info-card title="Name">
-      <input class="card-input" ng-if="vm.primaryInfo.name.value != null" type="text" placeholder="{{vm.primaryInfo.name.value}}" ng-model="vm.newInputs.name">
+      <input class="card-input" type="text" ng-if="vm.primaryInfo.name.value" ng-model="vm.newInputs.name">
       <input class="card-input" ng-if="vm.primaryInfo.name.value == null" type="text" placeholder="Enter name here..." ng-model="vm.newInputs.name">
     </info-card>
 

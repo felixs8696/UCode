@@ -4,18 +4,18 @@ angular
     Logger.setLog($log);
     if (!DataStorage.getPrimaryData() || Object.keys(DataStorage.getPrimaryData()).length == 0) {
       var initialPrimaryData = {
-        name: {value: 'Felix Su', shared: false, shareIcon: "ion-ios-person", unshareIcon: "ion-ios-person-outline"},
-        emails: {value: ['felixs8696@gmail.com'], shared: false, shareIcon: "ion-ios-email", unshareIcon: "ion-ios-email-outline"},
-        phones: {value: ['732 673 4738'], shared: false, shareIcon: "ion-ios-telephone", unshareIcon: "ion-ios-telephone-outline"},
-        school: {value: 'UC Berkeley', shared: false, shareIcon: "ion-ios-book", unshareIcon: "ion-ios-book-outline"},
+        name: {value: null, shared: true, shareIcon: "ion-ios-person", unshareIcon: "ion-ios-person-outline"},
+        emails: {value: [], shared: true, shareIcon: "ion-ios-email", unshareIcon: "ion-ios-email-outline"},
+        phones: {value: [], shared: true, shareIcon: "ion-ios-telephone", unshareIcon: "ion-ios-telephone-outline"},
+        school: {value: null, shared: true, shareIcon: "ion-ios-book", unshareIcon: "ion-ios-book-outline"},
         address: {value: {
-          street: '2520 Hillegass Ave. Apt 110',
-          city: 'Berkeley',
-          state: 'CA',
-          country: 'United States',
-          zipcode: '94704'
+          street: null,
+          city: null,
+          state: null,
+          country: null,
+          zipcode: null
         }, shared: false, shareIcon: "ion-ios-home", unshareIcon: "ion-ios-home-outline"},
-        websites: {value: ['http://felixsu.com'], shared: false, shareIcon: "ion-ios-world", unshareIcon: "ion-ios-world-outline"}
+        websites: {value: [], shared: true, shareIcon: "ion-ios-world", unshareIcon: "ion-ios-world-outline"}
       };
       DataStorage.storePrimaryData(initialPrimaryData);
     }
@@ -37,14 +37,6 @@ angular
         angelList: {data: {shared: false, selected: false, img: 'img/angellist.png'}, sharePkg: {title: 'AngelList', username: null, url: null}}
       };
       DataStorage.storeProfessionalData(initialProfMedia);
-    }
-    if (!DataStorage.getShareObj() || Object.keys(DataStorage.getShareObj()).length == 0) {
-      var initialShareObj = {
-        primary: {},
-        social: [],
-        professional: []
-      };
-      DataStorage.storeShareObj(initialShareObj);
     }
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
